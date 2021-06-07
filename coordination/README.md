@@ -137,3 +137,8 @@ AIGUILLAGE 17 #CECI EST UN COMMENTAIRE
 AIGUILLAGE 17 # CECI EST UN COMMENTAIRE
 AIGUILLAGE 31 # A1b
 ```
+
+# Configurer le programme
+
+Dans le fichier `utils.h`, vous trouverez toutes les variables de 
+paramètres qui permettent de configurer le programme.
