@@ -21,12 +21,12 @@
 #include <netdb.h>
 #include <ifaddrs.h>
 
-//#define COMMUNICATE_FOR_REAL_GR
+#define COMMUNICATE_FOR_REAL_GR
 //#define COMMUNICATE_FOR_REAL_AUTOMATE
 #define AFFICHE_TRAME_GR
 #define AFFICHE_TRAME_AUTOMATE
 
-#define ADDR_GR "10.22.205.103"
+#define ADDR_GR "127.0.0.1"
 #define PORT_GR 3300
 
 #define PORT 502

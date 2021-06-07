@@ -27,11 +27,9 @@ void communiqueGestionnaireRessource(char * code, char * res, int sock) {
 
     unsigned char buff[50], rbuff[50];
     sprintf(buff,"%s:%d:%s", code, charcount, res);
-    afficheTrameEnvoyeeGR(buff);
 #ifdef COMMUNICATE_FOR_REAL_GR
-    envoieMessage(sock, buff);
-    lisLeMessage(sock, rbuff, sizeof(rbuff));
-    afficheTrameRecuGR(rbuff);
+    envoieMessageGR(sock, buff);
+    lisLeMessageGR(sock, rbuff, sizeof(rbuff));
     if (rbuff[0] != 'A') { // the first letter should be 'A' for "ACK"
         trace(ERROR_COLOR, "Le gestionnaire de ressource m'a envoyé un NACK");
     }
@@ -60,11 +58,11 @@ void rendRessource(char * res, int sock) {
  */
 void disAuGRMonTrain(int sock, int numeroTrain) {
     traceDebug(PRGM_INFO_PRINT_COLOR, "Je dis au GR mon train");
-    char buff[50];
+    char buff[50], rbuff[50];
     sprintf(buff,"T:%d", numeroTrain);
-    afficheTrameEnvoyeeGR(buff);
 #ifdef COMMUNICATE_FOR_REAL_GR
-    envoieMessage(sock, buff);
-    lisLeMessage(sock, buff, sizeof(buff));
+    envoieMessageGR(sock, buff);
+    lisLeMessageGR(sock, rbuff, sizeof(rbuff));
+    afficheTrameRecuGR(rbuff);
 #endif
 }

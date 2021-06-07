@@ -245,7 +245,6 @@ void initialisationTrain(int *sd) {
     sscanf(rbuffer, "T:%d", &numeroTrain);
     memset(buffer, '\0', sizeof(char)*SIZE_BUFFER );
     sprintf(buffer, "ACK=%s", requete);
-    printf("%s\n", buffer);
     write(*sd, buffer, strlen(buffer)+1);
     communicationTrain(sd, numeroTrain);
 }

@@ -25,17 +25,35 @@ void initConnectionAutomate(int *sockfd);
  * Close la socket passée en param
  * @param sockfd - la socket à close
  */
-void closeConnection(int sockfd);
+void closeConnectionGR(int sockfd);
+
+/**
+ * Close la socket passée en param
+ * @param sockfd - la socket à close
+ */
+void closeConnectionAutomate(int sockfd);
+
 
 /**
  * Lis le message sur la socket sock et l'écrit dans la variable message
  */
-void lisLeMessage(int sock, char* message, int len);
+void lisLeMessageGR(int sock, char* message, int len);
+
+/**
+ * Lis le message sur la socket sock et l'écrit dans la variable message
+ */
+void lisLeMessageAutomate(int sock, char* message, int len);
 
 /**
  * Envoi le message sur la socket sock
  */
-void envoieMessage(int sock, char *buffer);
+void envoieMessageGR(int sock, char *buffer);
+
+/**
+ * Envoi le message sur la socket sock
+ */
+void envoieMessageAutomate(int sock, char *buffer);
+
 
 /**
  * Envoi la trame passée en paramètre à l'automate

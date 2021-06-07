@@ -38,7 +38,7 @@ int main() {
 
     readFile(&listeCommandes, "train1.txt");
 
-    disAuGRMonTrain(sockTCP, listeCommandes.train);
+    disAuGRMonTrain(sockTCP_GR, listeCommandes.train);
 
     for (int i = 0; i < listeCommandes.nbCommandes; i++) {
 
@@ -77,8 +77,8 @@ int main() {
         }
     }
 
-    closeConnection(sockTCP);
-    closeConnection(sockTCP_GR);
+    closeConnectionAutomate(sockTCP);
+    closeConnectionGR(sockTCP_GR);
 
     return 0;
 }
