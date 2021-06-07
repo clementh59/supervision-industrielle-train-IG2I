@@ -19,7 +19,7 @@ int main() {
 
     initConnectionAutomate(&sockTCP);
 
-    traceDebug(PRGM_INFO_PRINT_COLOR, "Connection with Automate GR OK");
+    traceDebug(PRGM_INFO_PRINT_COLOR, "Connection with Automate OK");
 
     commandeTroncon(sockTCP, addrGuest, addrDest, 16, 1);
     //commandeAiguillage(sockTCP, addrGuest, addrDest, 31, 1);
