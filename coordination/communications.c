@@ -56,10 +56,12 @@ void initConnectionAutomate(int *sockfd) {
     // socket create and verification
     *sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (*sockfd == -1) {
-        printf("socket creation failed...\n");
+        trace(ERROR_COLOR,"socket creation failed...");
         exit(0);
-    } else
-        printf("Socket for automate successfully created..\n");
+    }
+
+
+    trace(YELLOW, "Socket for automate successfully created..");
 
     bzero(&servaddr, sizeof(servaddr));
 
@@ -75,10 +77,9 @@ void initConnectionAutomate(int *sockfd) {
 
     // connect the client socket to server socket
     if (connect(*sockfd, (SA *) &servaddr, sizeof(servaddr)) != 0) {
-        printf("connection with the server failed\n");
+        trace(ERROR_COLOR,"connection with the automate failed");
         exit(0);
-    } else
-        printf("connected to the server\n\n");
+    }
 #endif
 }
 

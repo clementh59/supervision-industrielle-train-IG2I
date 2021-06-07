@@ -16,6 +16,8 @@ int main() {
     int sockTCP; // automate
     int sockTCP_GR; // Gestionnaire ressources
     char buffer[20];
+    listeCommandes_t listeCommandes;
+
 
     initCommonLibrary();
 
@@ -30,11 +32,6 @@ int main() {
     initConnectionGR(&sockTCP_GR);
 
     traceDebug(PRGM_INFO_PRINT_COLOR, "Connection with Automate and GR OK");
-
-    //commandeTroncon(sockTCP, addrGuest, addrDest, 16, 1);
-    //commandeAiguillage(sockTCP, addrGuest, addrDest, 31, 1);
-
-    listeCommandes_t listeCommandes;
 
     readFile(&listeCommandes, "train1.txt");
 

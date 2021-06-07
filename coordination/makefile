@@ -1,7 +1,10 @@
-all: common console file_parser trame communications gestionRessources commande_train coordination
+all: common console file_parser trame communications gestionRessources commande_train coordination test_troncon
 
 coordination: coordination.c file_parser.o communications.o gestionRessources.o console.o commande_train.o trame.o common.o
 	gcc console.o common.o file_parser.o communications.o gestionRessources.o commande_train.o trame.o coordination.c -o  coordination.exe -pthread -lm
+
+test_troncon: test_troncon.c file_parser.o communications.o gestionRessources.o console.o commande_train.o trame.o common.o
+	gcc console.o common.o file_parser.o communications.o gestionRessources.o commande_train.o trame.o test_troncon.c -o  test_troncon.exe -pthread -lm
 
 trame: trame.c
 	gcc -c trame.c
