@@ -7,6 +7,7 @@
 #include "communications.h"
 
 #define RES_OK_COMMANDE 0xFE
+#define SLEEP_ENTRE_COMMANDES 250000 // j'attend 250ms entre chaque commande
 
 /**
  * Envoie un message à l'automate pour piloter un aiguillage
@@ -104,7 +105,23 @@ void commande(int sock, int addrGuest, int addrDest, int addrVar, char valeur) {
     creeUneTrameDeCommande(&trameEnvoyee, sock, addrGuest, addrDest, addrVar, 0x0001, tableau);
     envoiLaTrame(sock, &trameEnvoyee);
     attendLaReponseDeLAutomate(sock, &trameRecue1);
-    // todo: check if I received RES_OK_COMMANDE
+
+    // Je vérifie que l'automate a bien compris ma requête
+    if (trameRecue1.trame[trameRecue1.length-1] != RES_OK_COMMANDE) {
+        trace(ERROR_COLOR, "Je n'ai pas reçu FE de la part de l'automate");
+        exit(0);
+    }
+
     attendLaReponseDeLAutomate(sock, &trameRecue2);
+
+    // Je vérifie que l'automate me renvoie bien la valeur envoyée
+    if (trameRecue2.trame[trameRecue2.length-2] != valeur) {
+        printf("%X \n", trameRecue2.trame[trameRecue2.length-2]);
+        trace(ERROR_COLOR, "L'automate ne m'a pas renvoyée la valeur de commande envoyée");
+        exit(0);
+    }
+
     repondALaTrameRecue(sock, &trameRecue2);
+
+    usleep(SLEEP_ENTRE_COMMANDES); //j'attend un certain temps entre chaque commande
 }

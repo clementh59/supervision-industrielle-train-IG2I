@@ -21,8 +21,9 @@ int main() {
 
     traceDebug(PRGM_INFO_PRINT_COLOR, "Connection with Automate OK");
 
+    commandeAiguillage(sockTCP, addrGuest, addrDest, 51, 1);
+    commandeAiguillage(sockTCP, addrGuest, addrDest, 37, 1);
     commandeTroncon(sockTCP, addrGuest, addrDest, 16, 1);
-    //commandeAiguillage(sockTCP, addrGuest, addrDest, 31, 1);
 
     closeConnectionAutomate(sockTCP);
 

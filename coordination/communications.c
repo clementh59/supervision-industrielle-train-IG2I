@@ -188,8 +188,12 @@ void attendLaReponseDeLAutomate(int sock, trame_t *trame) {
     trame->length = 24;
 #else
     unsigned char rbuffer[MAX_XWAY_FRAME_LENGTH];
-    read(sockfd, rbuffer, sizeof(rbuffer));
-    //todo : destructurer le read en trame
+    read(sock, rbuffer, sizeof(rbuffer));
+    trame->length = 0;
+    for (int i = 0; i < rbuffer[5]+6 ; i++) {
+        trame->trame[i] = rbuffer[i];
+        trame->length++;
+    }
 #endif
     afficheTrameRecuAutomate(*trame);
 }
