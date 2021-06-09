@@ -38,7 +38,7 @@ sem_t *mutexR;
  * Attend 0.5ms
  */
 void attendUnePeriode() {
-    usleep(500000);
+    usleep(500);
 }
 
 /**
