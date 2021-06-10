@@ -99,6 +99,7 @@ void commandeInversionTroncon(int sock, int addrGuest, int addrDest, char valeur
     sprintf(message, "Je commande l'inversion %d", valeur);
     trace(BOLD_GREEN, message);
 
+    usleep(500000);
     commande(sock, addrGuest, addrDest, addrVar, valeur);
 }
 
