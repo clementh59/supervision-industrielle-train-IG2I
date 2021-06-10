@@ -24,6 +24,8 @@ int main() {
     commandeAiguillage(sockTCP, addrGuest, addrDest, 51, 1);
     commandeAiguillage(sockTCP, addrGuest, addrDest, 37, 1);
     commandeTroncon(sockTCP, addrGuest, addrDest, 16, 1);
+    commandeInversionTroncon(sockTCP, addrGuest, addrDest, 26, 1);
+    commandeTroncon(sockTCP, addrGuest, addrDest, 6, 1);
 
     closeConnectionAutomate(sockTCP);
 

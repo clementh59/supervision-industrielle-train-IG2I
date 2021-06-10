@@ -32,6 +32,11 @@ void commandeAiguillage(int sock, int addrGuest, int addrDest, char valeur, int 
             break;
 
     }
+
+    char message[50];
+    sprintf(message, "Je commande l'aiguillage %d", valeur);
+    trace(BOLD_GREEN, message);
+
     commande(sock, addrGuest, addrDest, addrVar, valeur);
 }
 
@@ -58,6 +63,11 @@ void commandeTroncon(int sock, int addrGuest, int addrDest, char valeur, int tra
             break;
 
     }
+
+    char message[50];
+    sprintf(message, "Je commande le tronçon %d", valeur);
+    trace(BOLD_GREEN, message);
+
     commande(sock, addrGuest, addrDest, addrVar, valeur);
 }
 
@@ -84,6 +94,11 @@ void commandeInversionTroncon(int sock, int addrGuest, int addrDest, char valeur
             break;
 
     }
+
+    char message[50];
+    sprintf(message, "Je commande l'inversion %d", valeur);
+    trace(BOLD_GREEN, message);
+
     commande(sock, addrGuest, addrDest, addrVar, valeur);
 }
 

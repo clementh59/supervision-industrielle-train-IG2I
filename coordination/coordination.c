@@ -33,45 +33,49 @@ int main() {
 
     traceDebug(PRGM_INFO_PRINT_COLOR, "Connection with Automate and GR OK");
 
-    readFile(&listeCommandes, "train1.txt");
+    readFile(&listeCommandes, "train2.txt");
 
     disAuGRMonTrain(sockTCP_GR, listeCommandes.train);
 
-    for (int i = 0; i < listeCommandes.nbCommandes; i++) {
+    while(1) {
 
-        commande_t commande = listeCommandes.commandes[i];
+        for (int i = 0; i < listeCommandes.nbCommandes; i++) {
 
-        switch(commande.type) {
-            case TYPE_AIGUILLAGE:
-                commandeAiguillage(sockTCP, addrGuest, addrDest, commande.code, listeCommandes.train);
-                break;
-            case TYPE_INVERSION:
-                commandeInversionTroncon(sockTCP, addrGuest, addrDest, commande.code, listeCommandes.train);
-                break;
-            case TYPE_TRONCON:
-                commandeTroncon(sockTCP, addrGuest, addrDest, commande.code, listeCommandes.train);
-                break;
-            case TYPE_REND_RESSOURCE:
-                for (int c = 0; c < commande.code; c++) {
-                    buffer[c*2] = commande.ressources[c];
-                    if (c!=commande.code-1)
-                        buffer[c*2+1] = '/';
-                    else
-                        buffer[c*2+1] = '\0';
-                }
-                rendRessource(buffer, sockTCP_GR);
-                break;
-            case TYPE_PRISE_RESSOURCE:
-                for (int c = 0; c < commande.code; c++) {
-                    buffer[c*2] = commande.ressources[c];
-                    if (c!=commande.code-1)
-                        buffer[c*2+1] = '/';
-                    else
-                        buffer[c*2+1] = '\0';
-                }
-                demandeRessource(buffer, sockTCP_GR);
-                break;
+            commande_t commande = listeCommandes.commandes[i];
+
+            switch (commande.type) {
+                case TYPE_AIGUILLAGE:
+                    commandeAiguillage(sockTCP, addrGuest, addrDest, commande.code, listeCommandes.train);
+                    break;
+                case TYPE_INVERSION:
+                    commandeInversionTroncon(sockTCP, addrGuest, addrDest, commande.code, listeCommandes.train);
+                    break;
+                case TYPE_TRONCON:
+                    commandeTroncon(sockTCP, addrGuest, addrDest, commande.code, listeCommandes.train);
+                    break;
+                case TYPE_REND_RESSOURCE:
+                    for (int c = 0; c < commande.code; c++) {
+                        buffer[c * 2] = commande.ressources[c];
+                        if (c != commande.code - 1)
+                            buffer[c * 2 + 1] = '/';
+                        else
+                            buffer[c * 2 + 1] = '\0';
+                    }
+                    rendRessource(buffer, sockTCP_GR);
+                    break;
+                case TYPE_PRISE_RESSOURCE:
+                    for (int c = 0; c < commande.code; c++) {
+                        buffer[c * 2] = commande.ressources[c];
+                        if (c != commande.code - 1)
+                            buffer[c * 2 + 1] = '/';
+                        else
+                            buffer[c * 2 + 1] = '\0';
+                    }
+                    demandeRessource(buffer, sockTCP_GR);
+                    break;
+            }
         }
+
     }
 
     closeConnectionAutomate(sockTCP);
