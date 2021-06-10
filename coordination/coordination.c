@@ -12,7 +12,7 @@
 int addrDest = 0x8017;
 int addrGuest = 0x801B;
 
-int main() {
+int main(int argc, char ** argv) {
     int sockTCP; // automate
     int sockTCP_GR; // Gestionnaire ressources
     char buffer[20];
@@ -20,6 +20,12 @@ int main() {
 
 
     initCommonLibrary();
+
+    if (argc != 2) {
+        trace(ERROR_COLOR, "Il faut fournir un fichier en entrée (ex : ./coordination train1.txt)");
+        exit(-1);
+    }
+
 
 #ifndef COMMUNICATE_FOR_REAL_GR
     trace(ERROR_COLOR, "Attention, la communication avec le GR est desactivée");
@@ -33,7 +39,7 @@ int main() {
 
     traceDebug(PRGM_INFO_PRINT_COLOR, "Connection with Automate and GR OK");
 
-    readFile(&listeCommandes, "train2.txt");
+    readFile(&listeCommandes, argv[1]);
 
     disAuGRMonTrain(sockTCP_GR, listeCommandes.train);
 
