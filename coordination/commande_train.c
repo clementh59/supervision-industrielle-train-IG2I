@@ -129,14 +129,14 @@ void commande(int sock, int addrGuest, int addrDest, int addrVar, char valeur) {
 
     attendLaReponseDeLAutomate(sock, &trameRecue2);
 
+    repondALaTrameRecue(sock, &trameRecue2);
+
     // Je vérifie que l'automate me renvoie bien la valeur envoyée
     if (trameRecue2.trame[trameRecue2.length-2] != valeur) {
         printf("%X \n", trameRecue2.trame[trameRecue2.length-2]);
         trace(ERROR_COLOR, "L'automate ne m'a pas renvoyée la valeur de commande envoyée");
         exit(0);
     }
-
-    repondALaTrameRecue(sock, &trameRecue2);
 
     usleep(SLEEP_ENTRE_COMMANDES); //j'attend un certain temps entre chaque commande
 }
