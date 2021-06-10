@@ -7,8 +7,9 @@
 /**
  * Crée une socket de connection avec le gestionnaire de ressources
  * @param sockfd - le numéro de la socket qui sera crée
+ * @param ip - l'ip du gestionnaire de ressources
  */
-void initConnectionGR(int *sockfd) {
+void initConnectionGR(int *sockfd, char* ip) {
 #ifdef COMMUNICATE_FOR_REAL_GR
     char addr[16];
     struct sockaddr_in servaddr, cli;
@@ -27,7 +28,8 @@ void initConnectionGR(int *sockfd) {
 
     // je me connecte sur le gestionnaire de ressources
     addr[0] = '\0';
-    strcat(addr, ADDR_GR);
+    printf("Je me connecte à %s\n", ip);
+    strcat(addr, ip);
     // assign IP, PORT
     servaddr.sin_family = AF_INET;
     servaddr.sin_addr.s_addr = inet_addr(addr);
@@ -161,31 +163,12 @@ void envoiLaTrame(int sockfd, trame_t *trame) {
 void attendLaReponseDeLAutomate(int sock, trame_t *trame) {
 #ifndef COMMUNICATE_FOR_REAL_AUTOMATE
     // J'envoi une trame test pour simuler l'automate
-    trame->trame[0] = 0x00;
-    trame->trame[1] = 0x00;
-    trame->trame[2] = 0x00;
-    trame->trame[3] = 0x01;
-    trame->trame[4] = 0x00;
-    trame->trame[5] = 0x12;
-    trame->trame[6] = 0x00;
-    trame->trame[7] = 0xF1;
-    trame->trame[8] = 0x17;
-    trame->trame[9] = 0x80;
-    trame->trame[10] = 0x1B;
-    trame->trame[11] = 0x80;
-    trame->trame[12] = 0x09;
-    trame->trame[13] = 0x50;
-    trame->trame[14] = 0x37;
-    trame->trame[15] = 0x07;
-    trame->trame[16] = 0x68;
-    trame->trame[17] = 0x07;
-    trame->trame[18] = 0x01;
-    trame->trame[19] = 0x00;
-    trame->trame[20] = 0x01;
-    trame->trame[21] = 0x00;
-    trame->trame[22] = 0x20;
-    trame->trame[23] = 0x00;
-    trame->length = 24;
+    trame->trame[0] = 0xFE;
+    trame->trame[1] = 0xFE;
+    trame->trame[2] = 0xFE;
+    trame->trame[3] = 0xFE;
+    trame->trame[4] = 0xFE;
+    trame->length = 5;
 #else
     unsigned char rbuffer[MAX_XWAY_FRAME_LENGTH];
     read(sock, rbuffer, sizeof(rbuffer));

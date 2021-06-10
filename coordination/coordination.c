@@ -10,7 +10,7 @@
 #include "file_parser.h"
 
 int addrDest = 0x8017;
-int addrGuest = 0x801B;
+int addrGuest = 0x8000;
 
 int main(int argc, char ** argv) {
     int sockTCP; // automate
@@ -21,11 +21,14 @@ int main(int argc, char ** argv) {
 
     initCommonLibrary();
 
-    if (argc != 2) {
-        trace(ERROR_COLOR, "Il faut fournir un fichier en entrée (ex : ./coordination train1.txt)");
+    if (argc != 4) {
+        trace(ERROR_COLOR, "Il faut fournir les bons paramètres en entrée (ex : ./coordination train1.txt MY_XWAY_ADDR GESTIONNAIRE_RESSOURCE_IP)");
         exit(-1);
     }
 
+    int tempo;
+    str2int(&tempo, argv[2],10);
+    addrGuest = addrGuest | tempo;
 
 #ifndef COMMUNICATE_FOR_REAL_GR
     trace(ERROR_COLOR, "Attention, la communication avec le GR est desactivée");
@@ -34,8 +37,10 @@ int main(int argc, char ** argv) {
     trace(ERROR_COLOR, "Attention, la communication avec l'automate est desactivée");
 #endif
 
+    //todo: récupérer my_addr_xway
+
     initConnectionAutomate(&sockTCP);
-    initConnectionGR(&sockTCP_GR);
+    initConnectionGR(&sockTCP_GR, argv[3]);
 
     traceDebug(PRGM_INFO_PRINT_COLOR, "Connection with Automate and GR OK");
 

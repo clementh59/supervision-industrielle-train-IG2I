@@ -26,7 +26,6 @@
 #define AFFICHE_TRAME_GR
 #define AFFICHE_TRAME_AUTOMATE
 
-#define ADDR_GR "127.0.0.1"
 #define PORT_GR 3300
 
 #define PORT 502

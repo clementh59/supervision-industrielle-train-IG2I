@@ -12,8 +12,9 @@
 /**
  * Crée une socket de connection avec le gestionnaire de ressources
  * @param sockfd - le numéro de la socket qui sera crée
+ * @param ip - l'ip du gestionnaire de ressources
  */
-void initConnectionGR(int *sockfd);
+void initConnectionGR(int *sockfd, char* ip);
 
 /**
  * Crée une socket de connection avec l'automate
