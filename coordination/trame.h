@@ -37,4 +37,18 @@ void ajouteDeuxOctetsToTrame(trame_t *trame, int val);
 
 void creeUneTrameDeCommande(trame_t *trame, int sockfd, int addrGuest, int addrDest, int addr_premier_objet, int nb_obj, char *tableau);
 
+/**
+ *
+ * @param trame - la trame envoyée par l'automate
+ * @return l'adresse xway à laquelle la trame est destinée
+ */
+int getXWAYAddrFromReceivedFrame(trame_t trame);
+
+/**
+ * Copie originale dans dest
+ * @param dest
+ * @param originale
+ */
+void copieTrame(trame_t *dest, trame_t *originale);
+
 #endif //L4_TRAME_H

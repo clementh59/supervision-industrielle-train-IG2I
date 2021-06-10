@@ -71,3 +71,32 @@ void creeUneTrameDeCommande(trame_t *trame, int sockfd, int addrGuest, int addrD
         ajouteDeuxOctetsToTrame(trame, tableau[i]);
     }
 }
+
+/**
+ *
+ * @param trame - la trame envoyée par l'automate
+ * @return l'adresse xway à laquelle la trame est destinée
+ */
+int getXWAYAddrFromReceivedFrame(trame_t trame) {
+    int xwayAddr;
+
+    if (trame.length < 10)
+        return -1;
+
+    xwayAddr = trame.trame[10] & 0x00FF;
+    xwayAddr += trame.trame[11] << 8;
+    return xwayAddr;
+}
+
+/**
+ * Copie originale dans dest
+ * @param dest
+ * @param originale
+ */
+void copieTrame(trame_t *dest, trame_t *originale) {
+    dest->length = originale->length;
+
+    for (int i = 0; i < originale->length; i++) {
+        dest->trame[i] = originale->trame[i];
+    }
+}

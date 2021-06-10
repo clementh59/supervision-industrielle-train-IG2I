@@ -10,36 +10,34 @@
 
 /**
  * Envoie un message à l'automate pour piloter un aiguillage
- * @param sock - la socket de dialogue
+ * @param state
  * @param valeur - le code de l'aiguillage
  * @param train
  */
-void commandeAiguillage(int sock, int addrGuest, int addrDest, char valeur, int train);
+void commandeAiguillage(train_state_t *state, char valeur, int train);
 
 /**
  * Envoie un message à l'automate pour alimenter un tronçon
- * @param sock - la socket de dialogue
+ * @param state
  * @param valeur - le code du tronçon
  * @param train
  */
-void commandeTroncon(int sock, int addrGuest, int addrDest, char valeur, int train);
+void commandeTroncon(train_state_t *state, char valeur, int train);
 
 /**
  * Envoie un message à l'automate pour inverser un tronçon
- * @param sock - la socket de dialogue
+ * @param state
  * @param valeur - le code du tronçon
  * @param train
  */
-void commandeInversionTroncon(int sock, int addrGuest, int addrDest, char valeur, int train);
+void commandeInversionTroncon(train_state_t *state, char valeur, int train);
 
 /**
  * Modifie une variable de l'automate à l'adresse indiquée et avec la valeur indiquée
- * @param sock
- * @param addrGuest
- * @param addrDest
+ * @param train_state
  * @param addrVar
  * @param valeur
  */
-void commande(int sock, int addrGuest, int addrDest, int addrVar, char valeur);
+void commande(train_state_t *train_state, int addrVar, char valeur);
 
 #endif //L4_COMMANDE_TRAIN_H
