@@ -9,7 +9,7 @@
  * @param sockfd - le numéro de la socket qui sera crée
  * @param ip - l'ip du gestionnaire de ressources
  */
-void initConnectionGR(int *sockfd, char* ip) {
+void initConnectionGR(int *sockfd, char *ip) {
 #ifdef COMMUNICATE_FOR_REAL_GR
     char addr[16];
     struct sockaddr_in servaddr, cli;
@@ -147,7 +147,7 @@ void envoiLaTrame(shared_var_t *sharedVar, trame_t *trame) {
  * @return 1 si il s'agit d'une réponse à ma commande - 0 s'il s'agit d'une commande
  */
 int attendLaReponseDeLAutomate(train_state_t *train_state, trame_t *trame) {
-    while (train_state->readHasBeenTriggerred  == 0) {
+    while (train_state->readHasBeenTriggerred == 0) {
         usleep(50); // j'attend 50 micro s
     }
 
@@ -156,7 +156,6 @@ int attendLaReponseDeLAutomate(train_state_t *train_state, trame_t *trame) {
     copieTrame(trame, train_state->trameRecue);
     train_state->trameRecue->length = 0; // je reinitialise la trame
 
-    trace(RED, train_state->fileName);
     afficheTrameRecuAutomate(*trame);
 }
 
@@ -168,7 +167,7 @@ int attendLaReponseDeLAutomate(train_state_t *train_state, trame_t *trame) {
 void repondALaTrameRecue(shared_var_t *sharedVar, trame_t *trameRecue) {
     trame_t trameAEnvoyer;
 
-    for (int i = 0; i < 8; i ++) {
+    for (int i = 0; i < 8; i++) {
         trameAEnvoyer.trame[i] = trameRecue->trame[i];
     }
 
@@ -183,6 +182,183 @@ void repondALaTrameRecue(shared_var_t *sharedVar, trame_t *trameRecue) {
 
     envoiLaTrame(sharedVar, &trameAEnvoyer);
 }
+
+/**
+ * @param trame
+ * @return 1 si la trame passée en paramètre est une trame de commande. 0 sinon.
+ */
+int estUneTrameDeCommande(trame_t *trame) {
+    if (trame->length <= 22)
+        return 0;
+
+    if (trame->trame[22] == CODE_NB_TOURS || trame->trame[22] == CODE_RUN || trame->trame[22] == CODE_STOP)
+        return 1;
+
+    return 0;
+}
+
+// Je crée des fonctions de simulations si je ne dois pas communiquer pour de vrai avec l'automate
+#ifndef COMMUNICATE_FOR_REAL_AUTOMATE
+int trameActuelle = 0;
+
+/**
+ * Utile pour la simulation.
+ * @param trame
+ */
+void creeUneTrameDACKEnvoyeeParLautomate(trame_t *trame) {
+    // trame FE
+    ajouteOctetToTrame(trame, 0);
+    ajouteOctetToTrame(trame, 0);
+    ajouteOctetToTrame(trame, 0);
+    ajouteOctetToTrame(trame, 1);
+    ajouteOctetToTrame(trame, 0);
+    ajouteOctetToTrame(trame, 7);
+    ajouteOctetToTrame(trame, 0);
+    ajouteOctetToTrame(trame, 240);
+    ajouteOctetToTrame(trame, 23);
+    ajouteOctetToTrame(trame, 128);
+    ajouteOctetToTrame(trame, 27);
+    ajouteOctetToTrame(trame, 128);
+    ajouteOctetToTrame(trame, 80);
+    ajouteOctetToTrame(trame, 254);
+}
+
+/**
+ * Crée une trame envoyee par l'automate (la trame contient un mot de valeur `value`). Utile pour la simulation.
+ * @param trame - la trame qui contiendra la trame crée par a fonction
+ * @param value
+ */
+void creeUneTrameDEnvoyeeParLautomate(trame_t *trame, char value) {
+    ajouteOctetToTrame(trame, 0);
+    ajouteOctetToTrame(trame, 0);
+    ajouteOctetToTrame(trame, 0);
+    ajouteOctetToTrame(trame, 1);
+    ajouteOctetToTrame(trame, 0);
+    ajouteOctetToTrame(trame, 0x12);
+    ajouteOctetToTrame(trame, 0);
+    ajouteOctetToTrame(trame, 0xF1);
+    ajouteOctetToTrame(trame, 0x17);
+    ajouteOctetToTrame(trame, 0x80);
+    ajouteOctetToTrame(trame, 0x1B);
+    ajouteOctetToTrame(trame, 0x80);
+    ajouteOctetToTrame(trame, 9);
+    ajouteOctetToTrame(trame, 0x4D);
+    ajouteOctetToTrame(trame, 0x37);
+    ajouteOctetToTrame(trame, 0x07);
+    ajouteOctetToTrame(trame, 0x68);
+    ajouteOctetToTrame(trame, 0x07);
+    ajouteOctetToTrame(trame, 0x01);
+    ajouteOctetToTrame(trame, 0x00);
+    ajouteOctetToTrame(trame, 0x01);
+    ajouteOctetToTrame(trame, 0x00);
+    ajouteOctetToTrame(trame, value);
+    ajouteOctetToTrame(trame, 0x00);
+}
+
+/**
+ * Simule une séquence de trame reçu
+ * @param trame
+ */
+void getReadTrame(trame_t *trame) {
+
+    trame->length = 0;
+
+    switch (trameActuelle) {
+        case 0:
+            ajouteOctetToTrame(trame, 0);
+            ajouteOctetToTrame(trame, 0);
+            ajouteOctetToTrame(trame, 0);
+            ajouteOctetToTrame(trame, 1);
+            ajouteOctetToTrame(trame, 0);
+            ajouteOctetToTrame(trame, 0x14);
+            ajouteOctetToTrame(trame, 0);
+            ajouteOctetToTrame(trame, 0xF1);
+            ajouteOctetToTrame(trame, 0x17);
+            ajouteOctetToTrame(trame, 0x80);
+            ajouteOctetToTrame(trame, 0x1B);
+            ajouteOctetToTrame(trame, 0x80);
+            ajouteOctetToTrame(trame, 9);
+            ajouteOctetToTrame(trame, 0x4D);
+            ajouteOctetToTrame(trame, 0x37);
+            ajouteOctetToTrame(trame, 0x07);
+            ajouteOctetToTrame(trame, 0x68);
+            ajouteOctetToTrame(trame, 0x07);
+            ajouteOctetToTrame(trame, 0x01);
+            ajouteOctetToTrame(trame, 0x00);
+            ajouteOctetToTrame(trame, 0x01);
+            ajouteOctetToTrame(trame, 0x00);
+            ajouteOctetToTrame(trame, CODE_NB_TOURS);
+            ajouteOctetToTrame(trame, 0x00);
+            ajouteOctetToTrame(trame, 2);
+            ajouteOctetToTrame(trame, 0x00);
+            break;
+        case 1:
+            // trame CMD RUN
+            creeUneTrameDEnvoyeeParLautomate(trame, CODE_RUN);
+            break;
+        case 2:
+            creeUneTrameDACKEnvoyeeParLautomate(trame);
+            break;
+        case 3:
+            creeUneTrameDEnvoyeeParLautomate(trame, 50);
+            break;
+        case 4:
+            creeUneTrameDACKEnvoyeeParLautomate(trame);
+            break;
+        case 5:
+            creeUneTrameDEnvoyeeParLautomate(trame, 32);
+            break;
+        case 6:
+            creeUneTrameDACKEnvoyeeParLautomate(trame);
+            break;
+        case 7:
+            creeUneTrameDEnvoyeeParLautomate(trame, 32);
+            break;
+        case 8:
+            creeUneTrameDACKEnvoyeeParLautomate(trame);
+            break;
+        case 9:
+            creeUneTrameDEnvoyeeParLautomate(trame, 32);
+            break;
+        case 10:
+            creeUneTrameDACKEnvoyeeParLautomate(trame);
+            break;
+        case 11:
+            creeUneTrameDEnvoyeeParLautomate(trame, 32);
+            break;
+        case 12:
+            creeUneTrameDACKEnvoyeeParLautomate(trame);
+            break;
+        case 13:
+            creeUneTrameDEnvoyeeParLautomate(trame, 32);
+            break;
+        case 14:
+            creeUneTrameDEnvoyeeParLautomate(trame, CODE_STOP);
+            break;
+        case 15:
+            sleep(5);
+            creeUneTrameDEnvoyeeParLautomate(trame, CODE_RUN);
+            break;
+    }
+
+    if (trame->length == 0) {
+        if (trameActuelle < 43) {
+            if (trameActuelle % 2 == 0)
+                creeUneTrameDACKEnvoyeeParLautomate(trame);
+            else
+                creeUneTrameDEnvoyeeParLautomate(trame, 32);
+        } else {
+            if (trameActuelle % 2 != 0)
+                creeUneTrameDACKEnvoyeeParLautomate(trame);
+            else
+                creeUneTrameDEnvoyeeParLautomate(trame, 32);
+        }
+    }
+
+    trameActuelle++;
+}
+
+#endif
 
 /**
  * Lis en continu les messages envoyés par l'automate et les redirige au bon endroit.
@@ -200,23 +376,12 @@ void lectureAutomateThread(two_train_state_t *trains_state) {
             trame.length++;
         }
 #else
+        usleep(500000);
         trame_t trame;
         unsigned char rbuffer[MAX_XWAY_FRAME_LENGTH];
-        ajouteOctetToTrame(&trame, 0);
-        ajouteOctetToTrame(&trame, 0);
-        ajouteOctetToTrame(&trame, 0);
-        ajouteOctetToTrame(&trame, 1);
-        ajouteOctetToTrame(&trame, 0);
-        ajouteOctetToTrame(&trame, 7);
-        ajouteOctetToTrame(&trame, 0);
-        ajouteOctetToTrame(&trame, 240);
-        ajouteOctetToTrame(&trame, 23);
-        ajouteOctetToTrame(&trame, 128);
-        ajouteOctetToTrame(&trame, 27);
-        ajouteOctetToTrame(&trame, 128);
-        ajouteOctetToTrame(&trame, 80);
-        ajouteOctetToTrame(&trame, 254);
+        getReadTrame(&trame);
 #endif
+
         int xwayAddr = getXWAYAddrFromReceivedFrame(trame);
         train_state_t *train;
 
@@ -229,7 +394,30 @@ void lectureAutomateThread(two_train_state_t *trains_state) {
             exit(-1);
         }
 
-        copieTrame(train->trameRecue, &trame);
-        train->readHasBeenTriggerred = 1;
+        if (estUneTrameDeCommande(&trame)) {
+            switch (trame.trame[22]) {
+                case CODE_STOP:
+                    trace(PRGM_INFO_PRINT_COLOR, "J'ai recu un message qui me dit de STOP");
+                    train->run = 0;
+                    // Je dois répondre un FE
+                    repondALaTrameRecue(train->sharedVar, &trame);
+                    break;
+                case CODE_RUN:
+                    trace(PRGM_INFO_PRINT_COLOR, "J'ai recu un message qui me dit de RUN");
+                    train->run = 1;
+                    // Je dois répondre un FE
+                    repondALaTrameRecue(train->sharedVar, &trame);
+                    break;
+                case CODE_NB_TOURS:
+                    trace(PRGM_INFO_PRINT_COLOR, "J'ai recu un message qui me dit de changer le nombre de tour");
+                    train->nb_tours = trame.trame[24];
+                    // Je dois répondre un FE
+                    repondALaTrameRecue(train->sharedVar, &trame);
+                    break;
+            }
+        } else {
+            copieTrame(train->trameRecue, &trame);
+            train->readHasBeenTriggerred = 1;
+        }
     }
 }

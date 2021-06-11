@@ -51,14 +51,12 @@ int main(int argc, char ** argv) {
     strcpy(stateTrainA.fileName, argv[1]);
     stateTrainA.addrXWAY = addrGuest | xway_addr_a_tempo;
     stateTrainA.sharedVar = &sharedVar;
-    stateTrainA.readHasBeenTriggerred = 0;
     stateTrainA.trameRecue = malloc(sizeof(trame_t));
 
     // J'initialise la variable de config du train B
     strcpy(stateTrainB.fileName, argv[2]);
     stateTrainB.addrXWAY = addrGuest | xway_addr_b_tempo;
     stateTrainB.sharedVar = &sharedVar;
-    stateTrainB.readHasBeenTriggerred = 0;
     stateTrainB.trameRecue = malloc(sizeof(trame_t));
 
     // J'initialise la shared Var

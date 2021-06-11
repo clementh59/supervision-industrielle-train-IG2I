@@ -40,4 +40,17 @@ void commandeInversionTroncon(train_state_t *state, char valeur, int train);
  */
 void commande(train_state_t *train_state, int addrVar, char valeur);
 
+/**
+ * Envoie le nombre de tours qu'il me reste à l'automate
+ * @param train_state - le state du train concerné
+ * @param train - le numéro du train
+ */
+void envoieMonNombreDeTours(train_state_t *train_state, int train);
+
+/**
+ * Attend que le train soit en mode run pour quitter la fonction
+ * @param state_train
+ */
+void attendQueLeTrainSoitEnModeRUN(train_state_t *state_train);
+
 #endif //L4_COMMANDE_TRAIN_H

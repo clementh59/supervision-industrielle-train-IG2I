@@ -142,3 +142,20 @@ AIGUILLAGE 31 # A1b
 
 Dans le fichier `utils.h`, vous trouverez toutes les variables de 
 paramètres qui permettent de configurer le programme.
+
+# Tester le programme
+
+Pour tester le programme, vous pouvez commenter les deux lignes suivantes dans `utils.h` :
+
+```
+// #define COMMUNICATE_FOR_REAL_GR
+// #define COMMUNICATE_FOR_REAL_AUTOMATE
+```
+
+Puis exécuter les commandes suivantes :
+```
+make
+./coordination.exe train1.txt train2.txt 27 28 192.168.1.1
+```
+
+La dernière commande va simplement simuler des échanges avec l'automate pour le pilotage du train1.
