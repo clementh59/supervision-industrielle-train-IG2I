@@ -116,15 +116,6 @@ void lisLeMessageGR(int sock, char *message, int len) {
 }
 
 /**
- * Lis le message sur la socket sock et l'écrit dans la variable message
- */
-void lisLeMessageAutomate(int sock, char *message, int len) {
-#ifdef COMMUNICATE_FOR_REAL_AUTOMATE
-    read(sock, message, len);
-#endif
-}
-
-/**
  * Envoi le message sur la socket sock
  */
 void envoieMessageGR(int sock, char *buffer) {
@@ -135,58 +126,46 @@ void envoieMessageGR(int sock, char *buffer) {
 }
 
 /**
- * Envoi le message sur la socket sock
- */
-void envoieMessageAutomate(int sock, char *buffer) {
-#ifdef COMMUNICATE_FOR_REAL_AUTOMATE
-    write(sock, buffer, strlen(buffer)+1);
-#endif
-}
-
-/**
  * Envoi la trame passée en paramètre à l'automate
- * @param sockfd - la socket de dialogue
+ * @param sharedVar
  * @param trame - la trame à envoyer
  */
-void envoiLaTrame(int sockfd, trame_t *trame) {
+void envoiLaTrame(shared_var_t *sharedVar, trame_t *trame) {
     trame->trame[5] = trame->length - 6;
 #ifdef COMMUNICATE_FOR_REAL_AUTOMATE
-    write(sockfd, trame->trame, trame->length);
+    sem_wait(sharedVar->mutexEcritureAutomate);
+    write(sharedVar->socketAutomate, trame->trame, trame->length);
+    sem_post(sharedVar->mutexEcritureAutomate);
 #endif
     afficheTrameEnvoyeeAutomate(*trame);
 }
 
 /**
- * Attend la réponse automatique de l'automate
- * @param sock - la socket de dialogue
+ * Attend la réponse de l'automate
+ * @param train_state
+ * @param trame - la trame qui contiendra le message lu
+ * @return 1 si il s'agit d'une réponse à ma commande - 0 s'il s'agit d'une commande
  */
-void attendLaReponseDeLAutomate(int sock, trame_t *trame) {
-#ifndef COMMUNICATE_FOR_REAL_AUTOMATE
-    // J'envoi une trame test pour simuler l'automate
-    trame->trame[0] = 0xFE;
-    trame->trame[1] = 0xFE;
-    trame->trame[2] = 0xFE;
-    trame->trame[3] = 0xFE;
-    trame->trame[4] = 0xFE;
-    trame->length = 5;
-#else
-    unsigned char rbuffer[MAX_XWAY_FRAME_LENGTH];
-    read(sock, rbuffer, sizeof(rbuffer));
-    trame->length = 0;
-    for (int i = 0; i < rbuffer[5]+6 ; i++) {
-        trame->trame[i] = rbuffer[i];
-        trame->length++;
+int attendLaReponseDeLAutomate(train_state_t *train_state, trame_t *trame) {
+    while (train_state->readHasBeenTriggerred  == 0) {
+        usleep(50); // j'attend 50 micro s
     }
-#endif
+
+    train_state->readHasBeenTriggerred = 0; // je clear le flag
+
+    copieTrame(trame, train_state->trameRecue);
+    train_state->trameRecue->length = 0; // je reinitialise la trame
+
+    trace(RED, train_state->fileName);
     afficheTrameRecuAutomate(*trame);
 }
 
 /**
  * Repond à la trame reçue par un trame 5 niveaux
- * @param sock - la socket de dialogue
+ * @param sharedVar
  * @param trame - la trame à laquelle if faut répondre
  */
-void repondALaTrameRecue(int sock, trame_t *trameRecue) {
+void repondALaTrameRecue(shared_var_t *sharedVar, trame_t *trameRecue) {
     trame_t trameAEnvoyer;
 
     for (int i = 0; i < 8; i ++) {
@@ -202,5 +181,55 @@ void repondALaTrameRecue(int sock, trame_t *trameRecue) {
     trameAEnvoyer.trame[14] = 0xFE;
     trameAEnvoyer.length = 15;
 
-    envoiLaTrame(sock, &trameAEnvoyer);
+    envoiLaTrame(sharedVar, &trameAEnvoyer);
+}
+
+/**
+ * Lis en continu les messages envoyés par l'automate et les redirige au bon endroit.
+ * @param trains_state
+ */
+void lectureAutomateThread(two_train_state_t *trains_state) {
+    while (1) {
+#ifdef COMMUNICATE_FOR_REAL_AUTOMATE
+        trame_t trame;
+        unsigned char rbuffer[MAX_XWAY_FRAME_LENGTH];
+        read(trains_state->trainA->sharedVar->socketAutomate, rbuffer, sizeof(rbuffer));
+        trame.length = 0;
+        for (int i = 0; i < rbuffer[5]+6 ; i++) {
+            trame.trame[i] = rbuffer[i];
+            trame.length++;
+        }
+#else
+        trame_t trame;
+        unsigned char rbuffer[MAX_XWAY_FRAME_LENGTH];
+        ajouteOctetToTrame(&trame, 0);
+        ajouteOctetToTrame(&trame, 0);
+        ajouteOctetToTrame(&trame, 0);
+        ajouteOctetToTrame(&trame, 1);
+        ajouteOctetToTrame(&trame, 0);
+        ajouteOctetToTrame(&trame, 7);
+        ajouteOctetToTrame(&trame, 0);
+        ajouteOctetToTrame(&trame, 240);
+        ajouteOctetToTrame(&trame, 23);
+        ajouteOctetToTrame(&trame, 128);
+        ajouteOctetToTrame(&trame, 27);
+        ajouteOctetToTrame(&trame, 128);
+        ajouteOctetToTrame(&trame, 80);
+        ajouteOctetToTrame(&trame, 254);
+#endif
+        int xwayAddr = getXWAYAddrFromReceivedFrame(trame);
+        train_state_t *train;
+
+        if (xwayAddr == trains_state->trainA->addrXWAY) {
+            train = trains_state->trainA;
+        } else if (xwayAddr == trains_state->trainB->addrXWAY) {
+            train = trains_state->trainB;
+        } else {
+            trace(ERROR_COLOR, "L'automate a envoyé un message a une adresse XWAY inconnue");
+            exit(-1);
+        }
+
+        copieTrame(train->trameRecue, &trame);
+        train->readHasBeenTriggerred = 1;
+    }
 }

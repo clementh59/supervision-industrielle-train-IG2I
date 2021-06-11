@@ -11,11 +11,11 @@
 
 /**
  * Envoie un message à l'automate pour piloter un aiguillage
- * @param sock - la socket de dialogue
+ * @param state
  * @param valeur - le code de l'aiguillage
  * @param train
  */
-void commandeAiguillage(int sock, int addrGuest, int addrDest, char valeur, int train) {
+void commandeAiguillage(train_state_t *state, char valeur, int train) {
     int addrVar;
     switch (train) {
         case 1 :
@@ -37,16 +37,16 @@ void commandeAiguillage(int sock, int addrGuest, int addrDest, char valeur, int 
     sprintf(message, "Je commande l'aiguillage %d", valeur);
     trace(BOLD_GREEN, message);
 
-    commande(sock, addrGuest, addrDest, addrVar, valeur);
+    commande(state, addrVar, valeur);
 }
 
 /**
  * Envoie un message à l'automate pour alimenter un tronçon
- * @param sock - la socket de dialogue
+ * @param state
  * @param valeur - le code du tronçon
  * @param train
  */
-void commandeTroncon(int sock, int addrGuest, int addrDest, char valeur, int train) {
+void commandeTroncon(train_state_t *state, char valeur, int train) {
     int addrVar;
     switch (train) {
         case 1 :
@@ -68,16 +68,16 @@ void commandeTroncon(int sock, int addrGuest, int addrDest, char valeur, int tra
     sprintf(message, "Je commande le tronçon %d", valeur);
     trace(BOLD_GREEN, message);
 
-    commande(sock, addrGuest, addrDest, addrVar, valeur);
+    commande(state, addrVar, valeur);
 }
 
 /**
  * Envoie un message à l'automate pour inverser un tronçon
- * @param sock - la socket de dialogue
+ * @param state
  * @param valeur - le code du tronçon
  * @param train
  */
-void commandeInversionTroncon(int sock, int addrGuest, int addrDest, char valeur, int train) {
+void commandeInversionTroncon(train_state_t *state, char valeur, int train) {
     int addrVar;
     switch (train) {
         case 1 :
@@ -100,27 +100,24 @@ void commandeInversionTroncon(int sock, int addrGuest, int addrDest, char valeur
     trace(BOLD_GREEN, message);
 
     usleep(500000);
-    commande(sock, addrGuest, addrDest, addrVar, valeur);
+    commande(state, addrVar, valeur);
 }
 
 /**
  * Modifie une variable de l'automate à l'adresse indiquée et avec la valeur indiquée
- * @param sock
- * @param addrGuest
- * @param addrDest
+ * @param train_state
  * @param addrVar
  * @param valeur
- * @param train
  */
-void commande(int sock, int addrGuest, int addrDest, int addrVar, char valeur) {
+void commande(train_state_t *train_state, int addrVar, char valeur) {
     unsigned char tableau[1];
     trame_t trameEnvoyee, trameRecue1, trameRecue2;
 
     tableau[0] = valeur;
 
-    creeUneTrameDeCommande(&trameEnvoyee, sock, addrGuest, addrDest, addrVar, 0x0001, tableau);
-    envoiLaTrame(sock, &trameEnvoyee);
-    attendLaReponseDeLAutomate(sock, &trameRecue1);
+    creeUneTrameDeCommande(&trameEnvoyee, train_state->sharedVar->socketAutomate, train_state->addrXWAY, train_state->sharedVar->addrDest, addrVar, 0x0001, tableau);
+    envoiLaTrame(train_state->sharedVar, &trameEnvoyee);
+    attendLaReponseDeLAutomate(train_state, &trameRecue1);
 
     // Je vérifie que l'automate a bien compris ma requête
     if (trameRecue1.trame[trameRecue1.length-1] != RES_OK_COMMANDE) {
@@ -128,9 +125,11 @@ void commande(int sock, int addrGuest, int addrDest, int addrVar, char valeur) {
         exit(0);
     }
 
-    attendLaReponseDeLAutomate(sock, &trameRecue2);
+    attendLaReponseDeLAutomate(train_state, &trameRecue2);
 
-    repondALaTrameRecue(sock, &trameRecue2);
+
+
+    repondALaTrameRecue(train_state->sharedVar, &trameRecue2);
 
     // Je vérifie que l'automate me renvoie bien la valeur envoyée
     if (trameRecue2.trame[trameRecue2.length-2] != valeur) {

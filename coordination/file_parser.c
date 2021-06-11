@@ -143,5 +143,4 @@ void readFile(listeCommandes_t *listeCommandes, char * fileName) {
     sprintf(message, "Le nombre de commande dans le fichier lu est %d", listeCommandes->nbCommandes);
     traceDebug(PRGM_INFO_PRINT_COLOR, message);
     fclose(fp);
-    traceDebug(PRGM_INFO_PRINT_COLOR, "readFile() done");
 }

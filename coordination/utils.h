@@ -20,6 +20,7 @@
 #include <sys/wait.h>
 #include <netdb.h>
 #include <ifaddrs.h>
+#include <semaphore.h>
 
 #define COMMUNICATE_FOR_REAL_GR
 #define COMMUNICATE_FOR_REAL_AUTOMATE
@@ -65,5 +66,25 @@ typedef struct {
     commande_t commandes[NB_COMMANDE_MAX];
     int nbCommandes;
 } listeCommandes_t;
+
+typedef struct {
+    char addrGR[20];
+    int socketAutomate;
+    int addrDest;
+    sem_t *mutexEcritureAutomate;
+} shared_var_t;
+
+typedef struct {
+    char fileName[20];
+    int addrXWAY;
+    trame_t *trameRecue;
+    char readHasBeenTriggerred;
+    shared_var_t * sharedVar;
+} train_state_t;
+
+typedef struct {
+    train_state_t* trainA;
+    train_state_t* trainB;
+} two_train_state_t;
 
 #endif //L4_UTILS_H

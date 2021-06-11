@@ -29,8 +29,6 @@
 #define SIZE_T2 5
 #define PRINTER_LENGTH 100
 
-typedef void * (*pf_void)(void *);
-
 sem_t mutexPR;
 sem_t *mutexR;
 

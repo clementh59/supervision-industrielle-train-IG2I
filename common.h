@@ -32,7 +32,7 @@
 
 #define DEBUG
 
-
+typedef void * (*pf_void)(void *);
 
 typedef enum {
     STR2INT_SUCCESS,

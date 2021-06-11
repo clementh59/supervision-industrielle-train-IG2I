@@ -8,6 +8,7 @@
 #include "utils.h"
 #include "../common.h"
 #include "console.h"
+#include "trame.h"
 
 /**
  * Crée une socket de connection avec le gestionnaire de ressources
@@ -41,39 +42,36 @@ void closeConnectionAutomate(int sockfd);
 void lisLeMessageGR(int sock, char* message, int len);
 
 /**
- * Lis le message sur la socket sock et l'écrit dans la variable message
- */
-void lisLeMessageAutomate(int sock, char* message, int len);
-
-/**
  * Envoi le message sur la socket sock
  */
 void envoieMessageGR(int sock, char *buffer);
 
 /**
- * Envoi le message sur la socket sock
- */
-void envoieMessageAutomate(int sock, char *buffer);
-
-
-/**
  * Envoi la trame passée en paramètre à l'automate
- * @param sockfd - la socket de dialogue
+ * @param sharedVar
  * @param trame - la trame à envoyer
  */
-void envoiLaTrame(int sockfd, trame_t *trame);
+void envoiLaTrame(shared_var_t *sharedVar, trame_t *trame);
 
 /**
- * Attend la réponse automatique de l'automate
- * @param sock - la socket de dialogue
+ * Attend la réponse de l'automate
+ * @param train_state
+ * @param trame - la trame qui contiendra le message lu
+ * @return 1 si il s'agit d'une réponse à ma commande - 0 s'il s'agit d'une commande
  */
-void attendLaReponseDeLAutomate(int sock, trame_t *trame);
+int  attendLaReponseDeLAutomate(train_state_t *train_state, trame_t *trame);
 
 /**
- * Repond à la trame reçue
- * @param sock - la socket de dialogue
+ * Repond à la trame reçue par un trame 5 niveaux
+ * @param sharedVar
  * @param trame - la trame à laquelle if faut répondre
  */
-void repondALaTrameRecue(int sock, trame_t *trameRecue);
+void repondALaTrameRecue(shared_var_t *sharedVar, trame_t *trameRecue);
+
+/**
+ * Lis en continu les messages envoyés par l'automate et les redirige au bon endroit.
+ * @param trains_state
+ */
+void lectureAutomateThread(two_train_state_t *trains_state);
 
 #endif //L4_COMMUNICATIONS_H
