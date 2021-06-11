@@ -10,6 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a94777cc-9f2c-4283-a8e5-94d873c31e80" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/coordination/train3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coordination/train4.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,7 +24,7 @@
     <session id="486078157">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.0" value="5" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.3" value="1" />
@@ -41,7 +43,7 @@
           <entry key="makefile" value="8" />
           <entry key="md" value="18" />
           <entry key="png" value="2" />
-          <entry key="txt" value="18" />
+          <entry key="txt" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -49,7 +51,7 @@
           <entry key="Image" value="2" />
           <entry key="Markdown" value="18" />
           <entry key="ObjectiveC" value="290" />
-          <entry key="PLAIN_TEXT" value="31" />
+          <entry key="PLAIN_TEXT" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -59,20 +61,21 @@
           <entry key="gitignore" value="17" />
           <entry key="h" value="1788" />
           <entry key="makefile" value="126" />
-          <entry key="md" value="4961" />
-          <entry key="txt" value="1231" />
+          <entry key="md" value="5161" />
+          <entry key="txt" value="1627" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Doxygen file" value="73" />
-          <entry key="Markdown" value="4961" />
+          <entry key="Markdown" value="5161" />
           <entry key="ObjectiveC" value="34117" />
-          <entry key="PLAIN_TEXT" value="1428" />
+          <entry key="PLAIN_TEXT" value="1824" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
+          <entry key="git.branch.checkout.remote" value="1" />
           <entry key="git.branch.create.new" value="1" />
         </counts>
       </usages-collector>
@@ -81,88 +84,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coordination/communications.c">
+        <entry file="file://$PROJECT_DIR$/coordination/train3.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="357" column="20" selection-start-line="357" selection-start-column="20" selection-end-line="357" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#2#0" />
-                <element signature="e#71#252#0" />
-                <element signature="e#71#1242#0" />
-                <element signature="e#1244#1356#0" />
-                <element signature="e#1244#2306#0" />
-                <element signature="e#2308#2387#0" />
-                <element signature="e#2308#2483#0" />
-                <element signature="e#2485#2564#0" />
-                <element signature="e#2485#2672#0" />
-                <element signature="e#2674#2754#0" />
-                <element signature="e#2674#2913#0" />
-                <element signature="e#2915#2961#0" />
-                <element signature="e#2915#3126#0" />
-                <element signature="e#3128#3243#0" />
-                <element signature="e#3128#3595#0" />
-                <element signature="e#3597#3802#0" />
-                <element signature="e#3597#4206#0" />
-                <element signature="e#4208#4340#0" />
-                <element signature="e#4208#5028#0" />
-                <element signature="e#5030#5134#0" />
-                <element signature="e#5030#5369#0" />
-                <element signature="e#5532#5584#0" />
-                <element signature="e#5532#6148#0" />
-                <element signature="e#6150#6357#0" />
-                <element signature="e#6150#7295#0" />
-                <element signature="e#7297#7357#0" />
-                <element signature="e#10126#10242#0" />
-                <element signature="e#10532#12729#1" />
-              </folding>
+            <state relative-caret-position="323">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/coordination/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="136">
-                <caret line="160" column="99" selection-start-line="160" selection-start-column="99" selection-end-line="160" selection-end-column="99" />
-                <folding>
-                  <element signature="e#0#27#0" />
-                  <element signature="e#29#151#0" />
-                  <element signature="e#219#244#0" />
-                  <element signature="e#314#326#0" />
-                  <element signature="e#395#439#0" />
-                  <element signature="e#441#470#0" />
-                  <element signature="e#472#482#0" />
-                  <element signature="e#535#599#0" />
-                  <element signature="e#601#627#0" />
-                  <element signature="e#694#716#0" />
-                  <element signature="e#797#824#0" />
-                  <element signature="e#846#861#0" />
-                  <element signature="e#863#891#0" />
-                  <element signature="e#919#950#0" />
-                  <element signature="e#972#990#0" />
-                  <element signature="e#992#1023#0" />
-                  <element signature="e#1051#1088#0" />
-                  <element signature="e#1090#1247#0" />
-                  <element signature="e#1269#1290#0" />
-                  <element signature="e#1292#1323#0" />
-                  <element signature="e#1351#1384#0" />
-                  <element signature="e#1406#1425#0" />
-                  <element signature="e#1427#1470#0" />
-                  <element signature="e#1498#1563#0" />
-                  <element signature="e#1626#1642#0" />
-                  <element signature="e#1698#1740#0" />
-                  <element signature="e#1768#1833#0" />
-                  <element signature="e#1895#1907#0" />
-                  <element signature="e#1952#1971#0" />
-                  <element signature="e#1973#2096#0" />
-                  <element signature="e#2097#2203#0" />
-                  <element signature="e#2205#2230#0" />
-                  <element signature="e#2232#2352#0" />
-                  <element signature="e#2354#2375#0" />
-                </folding>
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/coordination/train4.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -170,70 +104,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/coordination/train1.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="9" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coordination/commande_train.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-306">
-              <caret line="103" column="6" selection-start-line="103" selection-start-column="6" selection-end-line="103" selection-end-column="6" />
-              <folding>
-                <element signature="e#0#2#0" />
-                <element signature="e#225#368#0" />
-                <element signature="e#896#1033#0" />
-                <element signature="e#1556#1692#0" />
-                <element signature="e#2225#2240#0" expanded="true" />
-                <element signature="e#2245#2395#0" />
-                <element signature="e#3298#3602#0" expanded="true" />
-                <element signature="e#3652#3732#0" expanded="true" />
-                <element signature="e#3611#3645#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coordination/commande_train.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
-              <folding>
-                <element signature="e#0#2#0" />
-                <element signature="e#147#290#0" />
-                <element signature="e#363#500#0" />
-                <element signature="e#570#706#0" />
-                <element signature="e#785#935#0" />
-                <element signature="e#1006#1158#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coordination/pilotageTrain.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
-              <folding>
-                <element signature="e#0#2#0" />
-                <element signature="e#70#230#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coordination/utils.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="24" selection-start-line="24" selection-end-line="25" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#2#0" />
-              </folding>
+            <state relative-caret-position="306">
+              <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -289,7 +161,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="thread_read" />
       </map>
     </option>
   </component>
@@ -341,6 +213,8 @@
         <option value="$PROJECT_DIR$/coordination/commande_train.c" />
         <option value="$PROJECT_DIR$/coordination/communications.c" />
         <option value="$PROJECT_DIR$/coordination/README.md" />
+        <option value="$PROJECT_DIR$/coordination/train3.txt" />
+        <option value="$PROJECT_DIR$/coordination/train4.txt" />
       </list>
     </option>
   </component>
@@ -390,17 +264,17 @@
     <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/coordination" />
-      <recent name="$PROJECT_DIR$/gestionnaire_ressource/res" />
-      <recent name="$PROJECT_DIR$/gestionnaire_ressource" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/old" />
       <recent name="$PROJECT_DIR$/coordination" />
       <recent name="$PROJECT_DIR$/gestionnaire_ressource" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/coordination" />
+      <recent name="$PROJECT_DIR$/gestionnaire_ressource/res" />
+      <recent name="$PROJECT_DIR$/gestionnaire_ressource" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -438,7 +312,7 @@
       <workItem from="1623068083411" duration="9998000" />
       <workItem from="1623248854041" duration="5390000" />
       <workItem from="1623313609527" duration="27117000" />
-      <workItem from="1623440730284" duration="9321000" />
+      <workItem from="1623440730284" duration="11002000" />
     </task>
     <task id="LOCAL-00001" summary="Removed generated files">
       <created>1623070981709</created>
@@ -545,11 +419,18 @@
       <option name="project" value="LOCAL" />
       <updated>1623450019446</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Updated communications">
+      <created>1623450205559</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1623450205559</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="177459000" />
+    <option name="totallyTimeSpent" value="179140000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -564,7 +445,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20475927" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20475927" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -576,7 +457,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32901832" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4997233" visible="true" weight="0.2972973" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4997233" visible="true" weight="0.2972973" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002767" side_tool="true" weight="0.3149946" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.20972973" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -628,7 +509,8 @@
     <MESSAGE value="Updated test" />
     <MESSAGE value="Added the thread method" />
     <MESSAGE value="Added the communication with PC View" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the communication with PC View" />
+    <MESSAGE value="Updated communications" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated communications" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/comm_Auto.c" />
@@ -921,13 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coordination/train1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="9" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coordination/utils.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -978,8 +853,8 @@
     <entry file="file://$PROJECT_DIR$/coordination/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="136">
-            <caret line="160" column="99" selection-start-line="160" selection-start-column="99" selection-end-line="160" selection-end-column="99" />
+          <first_editor relative-caret-position="425">
+            <caret line="162" column="45" lean-forward="true" selection-start-line="162" selection-start-column="45" selection-end-line="162" selection-end-column="45" />
             <folding>
               <element signature="e#0#27#0" />
               <element signature="e#29#151#0" />
@@ -1014,10 +889,30 @@
               <element signature="e#2097#2203#0" />
               <element signature="e#2205#2230#0" />
               <element signature="e#2232#2352#0" />
-              <element signature="e#2354#2375#0" />
             </folding>
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coordination/train1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coordination/train3.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coordination/train4.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
