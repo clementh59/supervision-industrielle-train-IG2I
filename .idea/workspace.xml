@@ -9,18 +9,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a94777cc-9f2c-4283-a8e5-94d873c31e80" name="Default Changelist" comment="Added the thread method">
-      <change afterPath="$PROJECT_DIR$/coordination/code.h" afterDir="false" />
+    <list default="true" id="a94777cc-9f2c-4283-a8e5-94d873c31e80" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comm_auto" beforeDir="false" afterPath="$PROJECT_DIR$/comm_auto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coordination/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/coordination/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coordination/commande_train.c" beforeDir="false" afterPath="$PROJECT_DIR$/coordination/commande_train.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coordination/commande_train.h" beforeDir="false" afterPath="$PROJECT_DIR$/coordination/commande_train.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coordination/communications.c" beforeDir="false" afterPath="$PROJECT_DIR$/coordination/communications.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coordination/communications.h" beforeDir="false" afterPath="$PROJECT_DIR$/coordination/communications.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coordination/coordination.c" beforeDir="false" afterPath="$PROJECT_DIR$/coordination/coordination.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coordination/pilotageTrain.c" beforeDir="false" afterPath="$PROJECT_DIR$/coordination/pilotageTrain.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coordination/utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/coordination/utils.h" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +60,7 @@
           <entry key="h" value="1788" />
           <entry key="makefile" value="126" />
           <entry key="md" value="4961" />
-          <entry key="txt" value="1186" />
+          <entry key="txt" value="1231" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -78,7 +68,7 @@
           <entry key="Doxygen file" value="73" />
           <entry key="Markdown" value="4961" />
           <entry key="ObjectiveC" value="34117" />
-          <entry key="PLAIN_TEXT" value="1383" />
+          <entry key="PLAIN_TEXT" value="1428" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -448,7 +438,7 @@
       <workItem from="1623068083411" duration="9998000" />
       <workItem from="1623248854041" duration="5390000" />
       <workItem from="1623313609527" duration="27117000" />
-      <workItem from="1623440730284" duration="9065000" />
+      <workItem from="1623440730284" duration="9321000" />
     </task>
     <task id="LOCAL-00001" summary="Removed generated files">
       <created>1623070981709</created>
@@ -548,11 +538,18 @@
       <option name="project" value="LOCAL" />
       <updated>1623345748182</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added the communication with PC View">
+      <created>1623450019446</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1623450019446</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="177203000" />
+    <option name="totallyTimeSpent" value="177459000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -630,7 +627,8 @@
     <MESSAGE value="Added a sleep before commanding aiguillage to avoid bug" />
     <MESSAGE value="Updated test" />
     <MESSAGE value="Added the thread method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the thread method" />
+    <MESSAGE value="Added the communication with PC View" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the communication with PC View" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/comm_Auto.c" />
@@ -674,6 +672,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="109">
           <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#93#111#0" expanded="true" />
+            <element signature="e#336#438#0" />
+          </folding>
         </state>
       </provider>
     </entry>

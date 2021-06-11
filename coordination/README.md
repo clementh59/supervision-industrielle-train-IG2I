@@ -155,7 +155,9 @@ Pour tester le programme, vous pouvez commenter les deux lignes suivantes dans `
 Puis exécuter les commandes suivantes :
 ```
 make
-./coordination.exe train1.txt train2.txt 27 28 192.168.1.1
+./coordination.exe train1.txt train2.txt 27 28 192.168.1.4
 ```
 
-La dernière commande va simplement simuler des échanges avec l'automate pour le pilotage du train1.
+La dernière commande va simplement simuler des échanges avec l'automate pour le pilotage du train1. L'adresse IP à la 
+fin de la commande n'est pas importante sachant que la communication avec le gestionnaire de ressources n'est pas 
+activée. Vous pouvez la laisser telle quelle.
