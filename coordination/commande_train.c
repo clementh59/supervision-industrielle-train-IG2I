@@ -174,7 +174,7 @@ void envoieMonNombreDeTours(train_state_t *train_state, int train) {
             addrVar = 514;
             break;
         case 4 :
-            addrVar = 514;
+            addrVar = 515;
             break;
     }
 

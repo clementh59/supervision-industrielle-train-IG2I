@@ -395,6 +395,7 @@ void lectureAutomateThread(two_train_state_t *trains_state) {
         }
 
         if (estUneTrameDeCommande(&trame)) {
+            afficheTrameRecuAutomate(trame);
             switch (trame.trame[22]) {
                 case CODE_STOP:
                     trace(PRGM_INFO_PRINT_COLOR, "J'ai recu un message qui me dit de STOP");

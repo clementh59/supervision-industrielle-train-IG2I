@@ -10,9 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a94777cc-9f2c-4283-a8e5-94d873c31e80" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/coordination/train3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coordination/train4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coordination/lanceTrain1et3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coordination/lanceTrain2et4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coordination/code.h" beforeDir="false" afterPath="$PROJECT_DIR$/coordination/code.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coordination/commande_train.c" beforeDir="false" afterPath="$PROJECT_DIR$/coordination/commande_train.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coordination/communications.c" beforeDir="false" afterPath="$PROJECT_DIR$/coordination/communications.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coordination/coordination.c" beforeDir="false" afterPath="$PROJECT_DIR$/coordination/coordination.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coordination/pilotageTrain.c" beforeDir="false" afterPath="$PROJECT_DIR$/coordination/pilotageTrain.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coordination/train3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/coordination/train3.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coordination/utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/coordination/utils.h" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,22 +31,24 @@
     <session id="486078157">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="12" />
+          <entry key="project.closed" value="14" />
           <entry key="project.open.time.0" value="5" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="3" />
+          <entry key="project.open.time.4" value="2" />
+          <entry key="project.open.time.5" value="4" />
           <entry key="project.open.time.6" value="2" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.opened" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="c" value="192" />
+          <entry key="c" value="197" />
           <entry key="comm_auto" value="4" />
           <entry key="gitignore" value="1" />
-          <entry key="h" value="98" />
+          <entry key="h" value="100" />
+          <entry key="lanceTrain1" value="1" />
+          <entry key="lanceTrain2et4" value="1" />
           <entry key="makefile" value="8" />
           <entry key="md" value="18" />
           <entry key="png" value="2" />
@@ -50,27 +59,28 @@
         <counts>
           <entry key="Image" value="2" />
           <entry key="Markdown" value="18" />
-          <entry key="ObjectiveC" value="290" />
-          <entry key="PLAIN_TEXT" value="34" />
+          <entry key="ObjectiveC" value="297" />
+          <entry key="PLAIN_TEXT" value="36" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="32402" />
+          <entry key="c" value="32497" />
           <entry key="comm_auto" value="54" />
           <entry key="gitignore" value="17" />
-          <entry key="h" value="1788" />
+          <entry key="h" value="1798" />
+          <entry key="lanceTrain2et4" value="6" />
           <entry key="makefile" value="126" />
           <entry key="md" value="5161" />
-          <entry key="txt" value="1627" />
+          <entry key="txt" value="1650" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Doxygen file" value="73" />
           <entry key="Markdown" value="5161" />
-          <entry key="ObjectiveC" value="34117" />
-          <entry key="PLAIN_TEXT" value="1824" />
+          <entry key="ObjectiveC" value="34222" />
+          <entry key="PLAIN_TEXT" value="1853" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -92,11 +102,105 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/coordination/train4.txt">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coordination/utils.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            <state relative-caret-position="306">
+              <caret line="24" column="2" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coordination/lanceTrain1et3">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="59" selection-start-column="59" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coordination/lanceTrain2et4">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="46" selection-start-column="46" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/coordination/pilotageTrain.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="82">
+              <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coordination/communications.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="509">
+              <caret line="201" selection-start-line="201" selection-end-line="201" />
+              <folding>
+                <element signature="e#0#2#0" />
+                <element signature="e#71#252#0" />
+                <element signature="e#71#1242#0" />
+                <element signature="e#1244#1356#0" />
+                <element signature="e#1244#2306#0" />
+                <element signature="e#2308#2387#0" />
+                <element signature="e#2308#2483#0" />
+                <element signature="e#2485#2564#0" />
+                <element signature="e#2485#2672#0" />
+                <element signature="e#2674#2754#0" />
+                <element signature="e#2674#2913#0" />
+                <element signature="e#2915#2961#0" />
+                <element signature="e#2915#3126#0" />
+                <element signature="e#3128#3243#0" />
+                <element signature="e#3128#3595#0" />
+                <element signature="e#3597#3802#0" />
+                <element signature="e#3597#4206#0" />
+                <element signature="e#4208#4340#0" />
+                <element signature="e#4208#5028#0" />
+                <element signature="e#5030#5134#0" />
+                <element signature="e#5030#5369#0" />
+                <element signature="e#10581#10697#0" />
+                <element signature="e#10581#12895#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coordination/commande_train.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="154" column="67" selection-start-line="154" selection-start-column="67" selection-end-line="154" selection-end-column="67" />
+              <folding>
+                <element signature="e#0#2#0" />
+                <element signature="e#225#368#0" />
+                <element signature="e#225#894#0" />
+                <element signature="e#896#1033#0" />
+                <element signature="e#896#1554#0" />
+                <element signature="e#1556#1692#0" />
+                <element signature="e#1556#2287#0" />
+                <element signature="e#2289#2439#0" />
+                <element signature="e#2289#3741#0" />
+                <element signature="e#3743#3895#0" />
+                <element signature="e#3743#5035#0" />
+                <element signature="e#5037#5131#0" />
+                <element signature="e#5037#5413#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coordination/coordination.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="73" column="6" selection-start-line="73" selection-start-column="6" selection-end-line="73" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -105,7 +209,7 @@
         <entry file="file://$PROJECT_DIR$/coordination/train1.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+              <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -114,7 +218,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>readFile</find>
       <find>param_train_t</find>
       <find>paramTrain</find>
       <find>attendLaReponseDeLAutomate</find>
@@ -131,7 +234,6 @@
       <find>malloc</find>
       <find>lectureA</find>
       <find>xway</find>
-      <find>RECU</find>
       <find>afficheTrameRecuAutomate</find>
       <find>commandeAiguillage</find>
       <find>copieTrame</find>
@@ -144,6 +246,8 @@
       <find>trace(Re</find>
       <find>run</find>
       <find>attendQ</find>
+      <find>recu</find>
+      <find>RECU</find>
     </findStrings>
     <replaceStrings>
       <replace>rendLaRessource</replace>
@@ -202,19 +306,21 @@
         <option value="$PROJECT_DIR$/coordination/pilotageTrain.h" />
         <option value="$PROJECT_DIR$/coordination/trame.h" />
         <option value="$PROJECT_DIR$/coordination/trame.c" />
-        <option value="$PROJECT_DIR$/coordination/test_troncon.c" />
-        <option value="$PROJECT_DIR$/coordination/code.h" />
-        <option value="$PROJECT_DIR$/coordination/utils.h" />
-        <option value="$PROJECT_DIR$/coordination/coordination.c" />
         <option value="$PROJECT_DIR$/comm_auto" />
         <option value="$PROJECT_DIR$/coordination/communications.h" />
         <option value="$PROJECT_DIR$/coordination/commande_train.h" />
-        <option value="$PROJECT_DIR$/coordination/pilotageTrain.c" />
-        <option value="$PROJECT_DIR$/coordination/commande_train.c" />
-        <option value="$PROJECT_DIR$/coordination/communications.c" />
         <option value="$PROJECT_DIR$/coordination/README.md" />
-        <option value="$PROJECT_DIR$/coordination/train3.txt" />
         <option value="$PROJECT_DIR$/coordination/train4.txt" />
+        <option value="$PROJECT_DIR$/coordination/code.h" />
+        <option value="$PROJECT_DIR$/coordination/lanceTrain1" />
+        <option value="$PROJECT_DIR$/coordination/lanceTrain2et4" />
+        <option value="$PROJECT_DIR$/coordination/coordination.c" />
+        <option value="$PROJECT_DIR$/coordination/utils.h" />
+        <option value="$PROJECT_DIR$/coordination/train3.txt" />
+        <option value="$PROJECT_DIR$/coordination/communications.c" />
+        <option value="$PROJECT_DIR$/coordination/commande_train.c" />
+        <option value="$PROJECT_DIR$/coordination/test_troncon.c" />
+        <option value="$PROJECT_DIR$/coordination/pilotageTrain.c" />
       </list>
     </option>
   </component>
@@ -264,17 +370,17 @@
     <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/old" />
-      <recent name="$PROJECT_DIR$/coordination" />
-      <recent name="$PROJECT_DIR$/gestionnaire_ressource" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/coordination" />
       <recent name="$PROJECT_DIR$/gestionnaire_ressource/res" />
       <recent name="$PROJECT_DIR$/gestionnaire_ressource" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/old" />
+      <recent name="$PROJECT_DIR$/coordination" />
+      <recent name="$PROJECT_DIR$/gestionnaire_ressource" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -313,6 +419,8 @@
       <workItem from="1623248854041" duration="5390000" />
       <workItem from="1623313609527" duration="27117000" />
       <workItem from="1623440730284" duration="11002000" />
+      <workItem from="1623451748142" duration="40000" />
+      <workItem from="1623666263203" duration="4045000" />
     </task>
     <task id="LOCAL-00001" summary="Removed generated files">
       <created>1623070981709</created>
@@ -426,11 +534,18 @@
       <option name="project" value="LOCAL" />
       <updated>1623450205559</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added train 3 and 4">
+      <created>1623451775809</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1623451775809</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179140000" />
+    <option name="totallyTimeSpent" value="183225000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -443,9 +558,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20475927" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2091865" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -457,7 +571,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32901832" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4997233" visible="true" weight="0.2972973" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4997233" visible="true" weight="0.6681081" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002767" side_tool="true" weight="0.3149946" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.20972973" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -510,7 +624,8 @@
     <MESSAGE value="Added the thread method" />
     <MESSAGE value="Added the communication with PC View" />
     <MESSAGE value="Updated communications" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated communications" />
+    <MESSAGE value="Added train 3 and 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added train 3 and 4" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/comm_Auto.c" />
@@ -554,10 +669,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="109">
           <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#93#111#0" expanded="true" />
-            <element signature="e#336#438#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -683,27 +794,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coordination/code.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coordination/test_troncon.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coordination/pilotageTrain.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#97#115#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -711,9 +805,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
           <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
-          <folding>
-            <element signature="e#1824#1931#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -728,20 +819,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="410">
           <caret line="75" column="42" selection-start-line="75" selection-start-column="42" selection-end-line="75" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#2#0" />
-            <element signature="e#200#381#0" />
-            <element signature="e#429#541#0" />
-            <element signature="e#585#664#0" />
-            <element signature="e#702#781#0" />
-            <element signature="e#826#906#0" />
-            <element signature="e#963#1009#0" />
-            <element signature="e#1057#1172#0" />
-            <element signature="e#1234#1439#0" />
-            <element signature="e#1518#1650#0" />
-            <element signature="e#1724#1829#0" />
-            <element signature="e#1724#1840#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -752,71 +829,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coordination/coordination.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coordination/commande_train.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
-          <folding>
-            <element signature="e#0#2#0" />
-            <element signature="e#147#290#0" />
-            <element signature="e#363#500#0" />
-            <element signature="e#570#706#0" />
-            <element signature="e#785#935#0" />
-            <element signature="e#1006#1158#0" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coordination/pilotageTrain.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#2#0" />
-            <element signature="e#70#230#0" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/coordination/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="425">
+            <caret line="162" column="45" lean-forward="true" selection-start-line="162" selection-start-column="45" selection-end-line="162" selection-end-column="45" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coordination/commande_train.c">
+    <entry file="file://$PROJECT_DIR$/coordination/train4.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306">
-          <caret line="103" column="6" selection-start-line="103" selection-start-column="6" selection-end-line="103" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#2#0" />
-            <element signature="e#225#368#0" />
-            <element signature="e#896#1033#0" />
-            <element signature="e#1556#1692#0" />
-            <element signature="e#2225#2240#0" expanded="true" />
-            <element signature="e#2245#2395#0" />
-            <element signature="e#3298#3602#0" expanded="true" />
-            <element signature="e#3652#3732#0" expanded="true" />
-            <element signature="e#3611#3645#0" />
-          </folding>
+        <state relative-caret-position="408">
+          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coordination/code.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coordination/lanceTrain2et4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="46" selection-start-column="46" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coordination/lanceTrain1et3">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="59" selection-start-column="59" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coordination/coordination.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="73" column="6" selection-start-line="73" selection-start-column="6" selection-end-line="73" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coordination/train1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/coordination/utils.h">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="24" column="2" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coordination/train3.txt">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="24" selection-start-line="24" selection-end-line="25" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#2#0" />
-          </folding>
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coordination/test_troncon.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/coordination/communications.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="357" column="20" selection-start-line="357" selection-start-column="20" selection-end-line="357" selection-end-column="20" />
+        <state relative-caret-position="509">
+          <caret line="201" selection-start-line="201" selection-end-line="201" />
           <folding>
             <element signature="e#0#2#0" />
             <element signature="e#71#252#0" />
@@ -839,80 +935,38 @@
             <element signature="e#4208#5028#0" />
             <element signature="e#5030#5134#0" />
             <element signature="e#5030#5369#0" />
-            <element signature="e#5532#5584#0" />
-            <element signature="e#5532#6148#0" />
-            <element signature="e#6150#6357#0" />
-            <element signature="e#6150#7295#0" />
-            <element signature="e#7297#7357#0" />
-            <element signature="e#10126#10242#0" />
-            <element signature="e#10532#12729#1" />
+            <element signature="e#10581#10697#0" />
+            <element signature="e#10581#12895#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coordination/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="425">
-            <caret line="162" column="45" lean-forward="true" selection-start-line="162" selection-start-column="45" selection-end-line="162" selection-end-column="45" />
-            <folding>
-              <element signature="e#0#27#0" />
-              <element signature="e#29#151#0" />
-              <element signature="e#219#244#0" />
-              <element signature="e#314#326#0" />
-              <element signature="e#395#439#0" />
-              <element signature="e#441#470#0" />
-              <element signature="e#472#482#0" />
-              <element signature="e#535#599#0" />
-              <element signature="e#601#627#0" />
-              <element signature="e#694#716#0" />
-              <element signature="e#797#824#0" />
-              <element signature="e#846#861#0" />
-              <element signature="e#863#891#0" />
-              <element signature="e#919#950#0" />
-              <element signature="e#972#990#0" />
-              <element signature="e#992#1023#0" />
-              <element signature="e#1051#1088#0" />
-              <element signature="e#1090#1247#0" />
-              <element signature="e#1269#1290#0" />
-              <element signature="e#1292#1323#0" />
-              <element signature="e#1351#1384#0" />
-              <element signature="e#1406#1425#0" />
-              <element signature="e#1427#1470#0" />
-              <element signature="e#1498#1563#0" />
-              <element signature="e#1626#1642#0" />
-              <element signature="e#1698#1740#0" />
-              <element signature="e#1768#1833#0" />
-              <element signature="e#1895#1907#0" />
-              <element signature="e#1952#1971#0" />
-              <element signature="e#1973#2096#0" />
-              <element signature="e#2097#2203#0" />
-              <element signature="e#2205#2230#0" />
-              <element signature="e#2232#2352#0" />
-            </folding>
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/coordination/commande_train.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="154" column="67" selection-start-line="154" selection-start-column="67" selection-end-line="154" selection-end-column="67" />
+          <folding>
+            <element signature="e#0#2#0" />
+            <element signature="e#225#368#0" />
+            <element signature="e#225#894#0" />
+            <element signature="e#896#1033#0" />
+            <element signature="e#896#1554#0" />
+            <element signature="e#1556#1692#0" />
+            <element signature="e#1556#2287#0" />
+            <element signature="e#2289#2439#0" />
+            <element signature="e#2289#3741#0" />
+            <element signature="e#3743#3895#0" />
+            <element signature="e#3743#5035#0" />
+            <element signature="e#5037#5131#0" />
+            <element signature="e#5037#5413#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coordination/train1.txt">
+    <entry file="file://$PROJECT_DIR$/coordination/pilotageTrain.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coordination/train3.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coordination/train4.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state relative-caret-position="82">
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
         </state>
       </provider>
     </entry>
