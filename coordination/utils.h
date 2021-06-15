@@ -58,7 +58,7 @@ typedef struct {
 typedef struct {
     int type;
     int code;
-    unsigned char ressources[MAX_RESSOURCES_PAR_COMMANDE];
+    char ressources[MAX_RESSOURCES_PAR_COMMANDE][2];
 } commande_t;
 
 typedef struct {

@@ -10,7 +10,7 @@
  */
 void pilotageTrain(train_state_t *stateTrain) {
 
-    int sockTCP_GR;
+    int sockTCP_GR, index;
     char buffer[20];
     listeCommandes_t listeCommandes;
 
@@ -45,22 +45,33 @@ void pilotageTrain(train_state_t *stateTrain) {
                         commandeTroncon(stateTrain, commande.code, listeCommandes.train);
                         break;
                     case TYPE_REND_RESSOURCE:
+                        index = 0;
                         for (int c = 0; c < commande.code; c++) {
-                            buffer[c * 2] = commande.ressources[c];
+
+                            buffer[index++] = commande.ressources[c][0];
+
+                            if (strlen(commande.ressources[c]) > 1)
+                                buffer[index++] = commande.ressources[c][1];
+
                             if (c != commande.code - 1)
-                                buffer[c * 2 + 1] = '/';
+                                buffer[index++] = '/';
                             else
-                                buffer[c * 2 + 1] = '\0';
+                                buffer[index++] = '\0';
                         }
                         rendRessource(buffer, sockTCP_GR);
                         break;
                     case TYPE_PRISE_RESSOURCE:
+                        index = 0;
                         for (int c = 0; c < commande.code; c++) {
-                            buffer[c * 2] = commande.ressources[c];
+                            buffer[index++] = commande.ressources[c][0];
+
+                            if (strlen(commande.ressources[c]) > 1)
+                                buffer[index++] = commande.ressources[c][1];
+
                             if (c != commande.code - 1)
-                                buffer[c * 2 + 1] = '/';
+                                buffer[index++] = '/';
                             else
-                                buffer[c * 2 + 1] = '\0';
+                                buffer[index++] = '\0';
                         }
                         demandeRessource(buffer, sockTCP_GR);
                         break;

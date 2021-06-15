@@ -22,7 +22,7 @@
 
 #define PORT 3300
 #define NB_TRAIN 4
-#define NB_RESSOURCE 12
+#define NB_RESSOURCE 13
 #define SIZE_BUFFER 70
 #define SIZE_RBUFFER 50
 #define SIZE_T1 2
