@@ -201,3 +201,20 @@ void attendQueLeTrainSoitEnModeRUN(train_state_t *state_train) {
         usleep(100000);
     }
 }
+
+/**
+ * Envoie un premier message à l'automate pour lui dire bonjour (j'écris le numéro du train sur une variable)
+ * @param state_train - le state du train concerné
+ * @param train - le uméro du train
+ */
+void disBonjourALautomate(train_state_t *state_train, int train) {
+    unsigned char tableau[1];
+    trame_t trameEnvoyee, trameRecue1;
+    int addrVar = 70;
+    tableau[0] = train;
+
+    creeUneTrameDeCommande(&trameEnvoyee, state_train->sharedVar->socketAutomate, state_train->addrXWAY, state_train->sharedVar->addrDest, addrVar, 0x0001, tableau);
+    envoiLaTrame(state_train->sharedVar, &trameEnvoyee);
+
+    attendLaReponseDeLAutomate(state_train, &trameRecue1);
+}

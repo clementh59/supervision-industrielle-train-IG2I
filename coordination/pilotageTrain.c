@@ -24,6 +24,8 @@ void pilotageTrain(train_state_t *stateTrain) {
 
     disAuGRMonTrain(sockTCP_GR, listeCommandes.train);
 
+    disBonjourALautomate(stateTrain, listeCommandes.train);
+
     while (1) {
         // Tant qu'on me dit de run et que le nombre de tours restant est supérieur à 0, je run
         while (stateTrain->run == 1 && stateTrain->nb_tours > 0) {

@@ -53,4 +53,11 @@ void envoieMonNombreDeTours(train_state_t *train_state, int train);
  */
 void attendQueLeTrainSoitEnModeRUN(train_state_t *state_train);
 
+/**
+ * Envoie un premier message à l'automate pour lui dire bonjour (j'écris le numéro du train sur une variable)
+ * @param state_train - le state du train concerné
+ * @param train - le uméro du train
+ */
+void disBonjourALautomate(train_state_t *state_train, int train);
+
 #endif //L4_COMMANDE_TRAIN_H
