@@ -36,16 +36,15 @@ void closeConnectionGR(int sockfd);
  */
 void closeConnectionAutomate(int sockfd);
 
-
 /**
  * Lis le message sur la socket sock et l'écrit dans la variable message
  */
-void lisLeMessageGR(int sock, char* message, int len);
+void lisLeMessageGR(int sock, char* message, int len, int train);
 
 /**
  * Envoi le message sur la socket sock
  */
-void envoieMessageGR(int sock, char *buffer);
+void envoieMessageGR(int sock, char *buffer, int train);
 
 /**
  * Envoi la trame passée en paramètre à l'automate

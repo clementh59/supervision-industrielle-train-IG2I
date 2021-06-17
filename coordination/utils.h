@@ -22,10 +22,10 @@
 #include <ifaddrs.h>
 #include <semaphore.h>
 
-//#define COMMUNICATE_FOR_REAL_GR
+#define COMMUNICATE_FOR_REAL_GR
 #define COMMUNICATE_FOR_REAL_AUTOMATE
 #define AFFICHE_TRAME_GR
-#define AFFICHE_TRAME_AUTOMATE
+// #define AFFICHE_TRAME_AUTOMATE
 
 #define PORT_GR 3300
 
@@ -39,7 +39,6 @@
 #define MAX_RESSOURCES_PAR_COMMANDE 4 // le nombre max de ressources prises ou rendues simultanément
 #define NB_COMMANDE_MAX 100 // Le nombre de commande max dans un fichier lu
 
-#define COMMUNICATION_WITH_GR_PRINT_COLOR CYAN
 #define COMMUNICATION_WITH_AUTOMATE_PRINT_COLOR RED
 #define PRGM_INFO_PRINT_COLOR YELLOW
 

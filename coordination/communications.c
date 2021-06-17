@@ -108,21 +108,21 @@ void closeConnectionAutomate(int sockfd) {
 /**
  * Lis le message sur la socket sock et l'écrit dans la variable message
  */
-void lisLeMessageGR(int sock, char *message, int len) {
+void lisLeMessageGR(int sock, char *message, int len, int train) {
 #ifdef COMMUNICATE_FOR_REAL_GR
     read(sock, message, len);
 #endif
-    afficheTrameRecuGR(message);
+    afficheTrameRecuGR(message, train);
 }
 
 /**
  * Envoi le message sur la socket sock
  */
-void envoieMessageGR(int sock, char *buffer) {
+void envoieMessageGR(int sock, char *buffer, int train) {
 #ifdef COMMUNICATE_FOR_REAL_GR
     write(sock, buffer, strlen(buffer)+1);
 #endif
-    afficheTrameEnvoyeeGR(buffer);
+    afficheTrameEnvoyeeGR(buffer, train);
 }
 
 /**

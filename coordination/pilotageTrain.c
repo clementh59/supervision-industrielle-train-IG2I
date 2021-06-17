@@ -60,7 +60,7 @@ void pilotageTrain(train_state_t *stateTrain) {
                             else
                                 buffer[index++] = '\0';
                         }
-                        rendRessource(buffer, sockTCP_GR);
+                        rendRessource(buffer, sockTCP_GR, listeCommandes.train);
                         break;
                     case TYPE_PRISE_RESSOURCE:
                         index = 0;
@@ -75,7 +75,7 @@ void pilotageTrain(train_state_t *stateTrain) {
                             else
                                 buffer[index++] = '\0';
                         }
-                        demandeRessource(buffer, sockTCP_GR);
+                        demandeRessource(buffer, sockTCP_GR, listeCommandes.train);
                         break;
                 }
 
@@ -91,5 +91,4 @@ void pilotageTrain(train_state_t *stateTrain) {
         usleep(100000);
     }
 
-    closeConnectionGR(sockTCP_GR);
 }

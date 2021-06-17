@@ -1,9 +1,9 @@
 # Programme de coordination
 
 Le programme de coordination communique avec le gestionnaire de ressources 
-ainsi que l'automate pour coordonner un train.
+ainsi que l'automate pour coordonner deux trains.
 
-Pour le lancer, il faut fournir un fichier de commande de train.
+Pour le lancer, il faut fournir deux fichiers de commande de train.
 
 # Utiliser le programme :
 
@@ -16,7 +16,7 @@ make
 Puis, vous pouvez lancer le programme avec la commande suivante :
 
 ```
-./coordination MON_FICHIER_DE_CONFIG
+./coordination.exe FICHIER_CONFIG_TRAIN_A FICHIER_CONFIG_TRAIN_B XWAY_A XWAY_B ADDR_IP_GR
 ```
 
 # Le fichier de configuration
@@ -161,3 +161,64 @@ make
 La dernière commande va simplement simuler des échanges avec l'automate pour le pilotage du train1. L'adresse IP à la 
 fin de la commande n'est pas importante sachant que la communication avec le gestionnaire de ressources n'est pas 
 activée. Vous pouvez la laisser telle quelle.
+
+# Les fichiers
+
+## coordination.c
+
+Ce fichier contient le programme principal. 
+
+Il se connecte à l'automate par le biai d'une socket et il initialise les variables globales qui seront utiles pour 
+le bon fonctionnement du programme. Il lit également les variables passées en paramètre du programe.
+
+Puis il créé 3 threads différents :
+- 1 thread pour la gestion d'un premier train
+- 1 thread pour la gestion d'un second train
+- 1 thread pour la lecture de la socket avec le train. Il écoute tous les messages reçus et les dispatch entre les 
+différents threads.
+
+## code.h
+
+Ce fichier définit les codes qui me serviront à identifier le type de trame envoyé par l'automate.
+
+## utils.h
+
+Ce fichier contient les constantes utiles au bon fonctionnement du programme. Il contient également la définition des
+types de variables crée pour le programme. 
+C'est dans ce programe que l'on paramétrer certaines choses telles que l'affichage des trames envoyé et reçu par 
+exemple.
+
+## commande_train.h/.c
+
+Ce fichier contient toutes les fonctions haut niveau utiles pour la communication avec l'automate. On a par exemple 
+les fonctions `envoieMonNombreDeTours` ou `commandeTroncon`.
+
+## gestionRessources.h/.c
+
+Ce fichier contient toutes les fonctions haut niveau utiles pour la communication avec le gestionnaire de ressources. 
+On a par exemple les fonctions `demandeRessource` ou `rendRessource`.
+
+## console.h/.c
+
+Ce fichier contient des fonctions d'affichage utile pour l'application.
+On a par exemple les fonctions `afficheTrameEnvoyeeAutomate` ou `afficheTrameRecuGR`.
+
+## file_parser.h/.c
+
+Ce fichier contient des fonctions utiles pour l'extraction des commandes présentes dans les fichiers de configuration 
+des trains.
+
+## pilotageTrain.h/.c
+
+Ce fichier contient la fonction `pilotageTrain` qui permet de gérer le pilotage d'un train. Cette fonction crée une 
+socket de connection pour communiquer avec le gestionnaire de ressources.
+
+Il gére ensuite la communication avec le GR et l'automate pour piloter un train.
+
+## test_troncon.h/.c
+
+Ce programme est un programme de test qui permet de tester rapidement une fonction souhaitée.
+
+## trame.h/.c
+
+Ce programme contient les fonctions utiles à la création d'une trame.

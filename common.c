@@ -6,11 +6,19 @@
 
 sem_t mutexAffichage;
 
+/**
+ * This function needs to be called to init the library
+ */
 void initCommonLibrary() {
     sem_init(&mutexAffichage,1,1);
     traceDebug(YELLOW, "initCommonLibrary() done");
 }
 
+/**
+ * Print the message in the console
+ * @param color - the color of the message
+ * @param message - the message
+ */
 void trace(char * color, char *message) {
 
     if (strcmp(color, INVISIBLE)!=0) {
@@ -47,17 +55,44 @@ void trace(char * color, char *message) {
     }
 }
 
+/**
+ * Call trace only if DEBUG is defined
+ * @param color
+ * @param message
+ */
 void traceDebug(char * color, char *message) {
 #ifdef DEBUG
     trace(color, message);
 #endif
 }
 
+/**
+ * Return a color corresponding to the train passed in param
+ * @param train - the train id
+ * @return a string corresponding to the color
+ */
+char * getBoldColorFromTrain(int train) {
+    switch(train){
+        case 1:
+            return BOLD_GREEN;
+        case 2 :
+            return BOLD_PURPLE;
+        case 3 :
+            return BOLD_YELLOW;
+        case 4 :
+            return BOLD_CYAN;
+    }
+}
+
+/**
+ * Change the color of the terminal cursor
+ * @param color
+ */
 void setTerminalColor(char * color) {
     printf("%s",color);
 }
 
-/* Convert string s to int out.
+/** Convert string s to int out.
  *
  * @param[out] out The converted int. Cannot be NULL.
  *

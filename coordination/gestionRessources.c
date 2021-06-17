@@ -11,7 +11,7 @@
  * @param res - la ou les ressources demandées
  * @param sock - la socket de dialogue
  */
-void communiqueGestionnaireRessource(char * code, char * res, int sock) {
+void communiqueGestionnaireRessource(char * code, char * res, int sock, int train) {
     // Je commence par calculer le nombre de ressources necessaires
     int m;
     int charcount;
@@ -28,8 +28,8 @@ void communiqueGestionnaireRessource(char * code, char * res, int sock) {
     unsigned char buff[50], rbuff[50];
     sprintf(buff,"%s:%d:%s", code, charcount, res);
 #ifdef COMMUNICATE_FOR_REAL_GR
-    envoieMessageGR(sock, buff);
-    lisLeMessageGR(sock, rbuff, sizeof(rbuff));
+    envoieMessageGR(sock, buff, train);
+    lisLeMessageGR(sock, rbuff, sizeof(rbuff), train);
     if (rbuff[0] != 'A') { // the first letter should be 'A' for "ACK"
         trace(ERROR_COLOR, "Le gestionnaire de ressource m'a envoyé un NACK");
     }
@@ -40,16 +40,16 @@ void communiqueGestionnaireRessource(char * code, char * res, int sock) {
  * Demander une ressource au gestionnaire de ressource
  * @param res - le numéro de la ressource à demander (ex : 1/2 pour demander les res 1 et 2)
  */
-void demandeRessource(char * res, int sock) {
-    communiqueGestionnaireRessource("DR",res,sock);
+void demandeRessource(char * res, int sock, int train) {
+    communiqueGestionnaireRessource("DR",res,sock, train);
 }
 
 /**
  * Rend une ressource au gestionnaire de ressource
  * @param res - le numéro de la ressource à demander (ex : 1/2 pour demander les res 1 et 2)
  */
-void rendRessource(char * res, int sock) {
-    communiqueGestionnaireRessource("RR",res,sock);
+void rendRessource(char * res, int sock, int train) {
+    communiqueGestionnaireRessource("RR",res,sock, train);
 }
 
 /**
@@ -61,8 +61,8 @@ void disAuGRMonTrain(int sock, int numeroTrain) {
     char buff[50], rbuff[50];
     sprintf(buff,"T:%d", numeroTrain);
 #ifdef COMMUNICATE_FOR_REAL_GR
-    envoieMessageGR(sock, buff);
-    lisLeMessageGR(sock, rbuff, sizeof(rbuff));
-    afficheTrameRecuGR(rbuff);
+    envoieMessageGR(sock, buff, numeroTrain);
+    lisLeMessageGR(sock, rbuff, sizeof(rbuff), numeroTrain);
+    afficheTrameRecuGR(rbuff, numeroTrain);
 #endif
 }

@@ -30,12 +30,11 @@ void commandeAiguillage(train_state_t *state, char valeur, int train) {
         case 4 :
             addrVar = 511;
             break;
-
     }
 
     char message[50];
-    sprintf(message, "Je commande l'aiguillage %d", valeur);
-    trace(BOLD_GREEN, message);
+    sprintf(message, "TRAIN %d - Je commande l'aiguillage %d", train, valeur);
+    trace(getBoldColorFromTrain(train), message);
 
     commande(state, addrVar, valeur);
 }
@@ -65,8 +64,8 @@ void commandeTroncon(train_state_t *state, char valeur, int train) {
     }
 
     char message[50];
-    sprintf(message, "Je commande le tronçon %d", valeur);
-    trace(BOLD_GREEN, message);
+    sprintf(message, "TRAIN %d - Je commande le tronçon %d", train, valeur);
+    trace(getBoldColorFromTrain(train), message);
 
     commande(state, addrVar, valeur);
 }
@@ -96,8 +95,8 @@ void commandeInversionTroncon(train_state_t *state, char valeur, int train) {
     }
 
     char message[50];
-    sprintf(message, "Je commande l'inversion %d", valeur);
-    trace(BOLD_GREEN, message);
+    sprintf(message, "TRAIN %d - Je commande l'inversion %d", train, valeur);
+    trace(getBoldColorFromTrain(train), message);
 
 #ifdef COMMUNICATE_FOR_REAL_AUTOMATE
     usleep(500000);
@@ -197,7 +196,6 @@ void envoieMonNombreDeTours(train_state_t *train_state, int train) {
 void attendQueLeTrainSoitEnModeRUN(train_state_t *state_train) {
     // Je vérifie si on m'a demandé de stopper le train. Si oui, j'attend qu'on me demande de repartir.
     while (state_train->run == 0) {
-        printf("J'attend pour continuer\n");
         usleep(100000);
     }
 }
@@ -205,13 +203,17 @@ void attendQueLeTrainSoitEnModeRUN(train_state_t *state_train) {
 /**
  * Envoie un premier message à l'automate pour lui dire bonjour (j'écris le numéro du train sur une variable)
  * @param state_train - le state du train concerné
- * @param train - le uméro du train
+ * @param train - le numéro du train
  */
 void disBonjourALautomate(train_state_t *state_train, int train) {
     unsigned char tableau[1];
     trame_t trameEnvoyee, trameRecue1;
-    int addrVar = 70;
+    int addrVar;
     tableau[0] = train;
+
+    addrVar = 69 + train;
+
+    trace(YELLOW, "Je dis bonjour à l'automate");
 
     creeUneTrameDeCommande(&trameEnvoyee, state_train->sharedVar->socketAutomate, state_train->addrXWAY, state_train->sharedVar->addrDest, addrVar, 0x0001, tableau);
     envoiLaTrame(state_train->sharedVar, &trameEnvoyee);
