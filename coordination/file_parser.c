@@ -122,14 +122,14 @@ void readFile(listeCommandes_t *listeCommandes, char * fileName) {
                     break;
                 case TYPE_PRISE_RESSOURCE:
                     for (int i = 1; i < res; i++)
-                        commande.ressources[i-1] = line_split[i][0];
+                        strcpy(commande.ressources[i-1], line_split[i]);
                     commande.code = res-1;
                     listeCommandes->commandes[listeCommandes->nbCommandes] = commande;
                     listeCommandes->nbCommandes++;
                     break;
                 case TYPE_REND_RESSOURCE:
                     for (int i = 1; i < res; i++)
-                        commande.ressources[i-1] = line_split[i][0];
+                        strcpy(commande.ressources[i-1], line_split[i]);
                     commande.code = res-1;
                     listeCommandes->commandes[listeCommandes->nbCommandes] = commande;
                     listeCommandes->nbCommandes++;

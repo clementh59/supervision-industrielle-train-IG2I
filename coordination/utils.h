@@ -25,7 +25,7 @@
 #define COMMUNICATE_FOR_REAL_GR
 #define COMMUNICATE_FOR_REAL_AUTOMATE
 #define AFFICHE_TRAME_GR
-#define AFFICHE_TRAME_AUTOMATE
+// #define AFFICHE_TRAME_AUTOMATE
 
 #define PORT_GR 3300
 
@@ -36,10 +36,9 @@
 #define NAME_AUTO "203"
 #define CHAINE_CARAC_FIN "\0"
 #define MAX_XWAY_FRAME_LENGTH 80
-#define MAX_RESSOURCES_PAR_COMMANDE 4
-#define NB_COMMANDE_MAX 100
+#define MAX_RESSOURCES_PAR_COMMANDE 4 // le nombre max de ressources prises ou rendues simultanément
+#define NB_COMMANDE_MAX 100 // Le nombre de commande max dans un fichier lu
 
-#define COMMUNICATION_WITH_GR_PRINT_COLOR CYAN
 #define COMMUNICATION_WITH_AUTOMATE_PRINT_COLOR RED
 #define PRGM_INFO_PRINT_COLOR YELLOW
 
@@ -58,7 +57,7 @@ typedef struct {
 typedef struct {
     int type;
     int code;
-    unsigned char ressources[MAX_RESSOURCES_PAR_COMMANDE];
+    char ressources[MAX_RESSOURCES_PAR_COMMANDE][2];
 } commande_t;
 
 typedef struct {
@@ -80,6 +79,8 @@ typedef struct {
     trame_t *trameRecue;
     char readHasBeenTriggerred;
     shared_var_t * sharedVar;
+    int nb_tours;
+    char run; // run if 1, stop if 0
 } train_state_t;
 
 typedef struct {

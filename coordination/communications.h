@@ -9,6 +9,7 @@
 #include "../common.h"
 #include "console.h"
 #include "trame.h"
+#include "code.h"
 
 /**
  * Crée une socket de connection avec le gestionnaire de ressources
@@ -35,16 +36,15 @@ void closeConnectionGR(int sockfd);
  */
 void closeConnectionAutomate(int sockfd);
 
-
 /**
  * Lis le message sur la socket sock et l'écrit dans la variable message
  */
-void lisLeMessageGR(int sock, char* message, int len);
+void lisLeMessageGR(int sock, char* message, int len, int train);
 
 /**
  * Envoi le message sur la socket sock
  */
-void envoieMessageGR(int sock, char *buffer);
+void envoieMessageGR(int sock, char *buffer, int train);
 
 /**
  * Envoi la trame passée en paramètre à l'automate
@@ -67,6 +67,12 @@ int  attendLaReponseDeLAutomate(train_state_t *train_state, trame_t *trame);
  * @param trame - la trame à laquelle if faut répondre
  */
 void repondALaTrameRecue(shared_var_t *sharedVar, trame_t *trameRecue);
+
+/**
+ * @param trame
+ * @return 1 si la trame passée en paramètre est une trame de commande. 0 sinon.
+ */
+int estUneTrameDeCommande(trame_t *trame);
 
 /**
  * Lis en continu les messages envoyés par l'automate et les redirige au bon endroit.

@@ -49,23 +49,25 @@ void afficheTrameRecuAutomate(trame_t trame) {
 /**
  * Affiche la trame envoyée au GR
  * @param buff - la trame
+ * @param train - l'id du train
  */
-void afficheTrameEnvoyeeGR(char *buff) {
+void afficheTrameEnvoyeeGR(char *buff, int train) {
 #ifdef AFFICHE_TRAME_GR
     char message[30];
-    sprintf(message, "\t\tENVOIE : %s", buff);
-    trace(COMMUNICATION_WITH_GR_PRINT_COLOR, message);
+    sprintf(message, "\t\tTRAIN %d - ENVOIE : %s", train, buff);
+    trace(getBoldColorFromTrain(train), message);
 #endif
 }
 
 /**
  * Affiche la trame recue par le GR
  * @param buff - la trame
+ * @param train - l'id du train
  */
-void afficheTrameRecuGR(char *buff) {
+void afficheTrameRecuGR(char *buff, int train) {
 #ifdef AFFICHE_TRAME_GR
     char message[30];
-    sprintf(message, "\t\tRECU : %s", buff);
-    trace(COMMUNICATION_WITH_GR_PRINT_COLOR, message);
+    sprintf(message, "\t\tTRAIN %d - RECU : %s", train, buff);
+    trace(getBoldColorFromTrain(train), message);
 #endif
 }

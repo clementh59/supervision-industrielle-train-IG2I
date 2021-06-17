@@ -50,7 +50,7 @@ void verifieSiLeTempsEstAcceptable(char * message, int tempsAttendu, int * timeS
     int temps = calculeLeTempsDepuisLeDebut(timeStamp_start);
     char printer[80]; // variable qui sert pour l'affichage dans la console
 
-    if (temps > (tempsAttendu+1000)*2.75 || temps < tempsAttendu*1.25) {
+    if (temps > (tempsAttendu)*1.25 || temps < tempsAttendu*0.25) {
         sprintf(printer, "%s failed (%d / %d)", message, temps, tempsAttendu);
         trace(ERROR_COLOR, printer);
     }

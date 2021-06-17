@@ -22,7 +22,7 @@
 
 #define PORT 3300
 #define NB_TRAIN 4
-#define NB_RESSOURCE 12
+#define NB_RESSOURCE 13
 #define SIZE_BUFFER 70
 #define SIZE_RBUFFER 50
 #define SIZE_T1 2
@@ -72,7 +72,6 @@ void reserveLaRessource(int num, int train) {
         sem_wait(&mutexR[num]);
         sprintf(printer, "La ressource %d est obtenue par %d", num, train);
         trace(getColorFromTrain(train), printer);
-        sleep(1);
     }
 }
 
@@ -130,19 +129,19 @@ void reserveLesRessources(int nbRessources, int *ressourcesDemandees, int train)
             for (int i = 0; i < nbRessources; i++) {
                 if (regardeSiLaRessourceEstDisponible(ressourcesDemandees[i]) == 0) {
                     ressources_dispo = 0;
-                    memset(printer, '\0', sizeof(char) * PRINTER_LENGTH);
-                    sprintf(printer, "La ressource %d n'est pas dispo", ressourcesDemandees[i]);
-                    traceDebug(getColorFromTrain(train), printer);
                 }
             }
             if (ressources_dispo) {
-                traceDebug(getColorFromTrain(train), "Les ressources sont toutes disponibles, je les prends");
                 for (int i = 0; i < nbRessources; i++)
                     reserveLaRessource(ressourcesDemandees[i], train);
             }
 
             sem_post(&mutexPR);
-            attendUnePeriode();
+
+            if (!ressources_dispo) {
+                attendUnePeriode();
+            }
+
         }
 
     } else {

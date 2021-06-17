@@ -14,9 +14,27 @@
 
 int addrDest = 0x8017;
 int addrGuest = 0x8000;
+int sockTCP; // automate
+
+void signalHandler (int signal_number) {
+    switch (signal_number) {
+        case SIGINT :
+            closeConnectionAutomate(sockTCP);
+            exit(0);
+    }
+}
+
+void handleControlC(){
+    struct sigaction newact;
+    int sts;
+
+    newact.sa_handler = signalHandler;
+    sigemptyset(&newact.sa_mask);
+    newact.sa_flags = 0; // on installe le handler deroute
+    sigaction(SIGINT, &newact, NULL);// on attend les signaux
+}
 
 int main(int argc, char ** argv) {
-    int sockTCP; // automate
     pthread_t thread1, thread2, thread3;
     int xway_addr_a_tempo, xway_addr_b_tempo;
     sem_t mutexEcritureAutomate;
@@ -51,14 +69,12 @@ int main(int argc, char ** argv) {
     strcpy(stateTrainA.fileName, argv[1]);
     stateTrainA.addrXWAY = addrGuest | xway_addr_a_tempo;
     stateTrainA.sharedVar = &sharedVar;
-    stateTrainA.readHasBeenTriggerred = 0;
     stateTrainA.trameRecue = malloc(sizeof(trame_t));
 
     // J'initialise la variable de config du train B
     strcpy(stateTrainB.fileName, argv[2]);
     stateTrainB.addrXWAY = addrGuest | xway_addr_b_tempo;
     stateTrainB.sharedVar = &sharedVar;
-    stateTrainB.readHasBeenTriggerred = 0;
     stateTrainB.trameRecue = malloc(sizeof(trame_t));
 
     // J'initialise la shared Var
@@ -82,8 +98,6 @@ int main(int argc, char ** argv) {
 
     // Le programme run en boucle
     while (1);
-
-    closeConnectionAutomate(sockTCP);
 
     return 0;
 }
