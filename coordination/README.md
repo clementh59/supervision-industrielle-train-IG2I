@@ -213,6 +213,8 @@ des trains.
 Ce fichier contient la fonction `pilotageTrain` qui permet de gérer le pilotage d'un train. Cette fonction crée une 
 socket de connection pour communiquer avec le gestionnaire de ressources.
 
+Il envoie ensuite un "bonjour" à l'automate pour lui dire qu'il est actif.
+
 Il gére ensuite la communication avec le GR et l'automate pour piloter un train.
 
 ## test_troncon.h/.c

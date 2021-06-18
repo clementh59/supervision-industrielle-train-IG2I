@@ -107,3 +107,9 @@ Voici ce que la console affiche une fois le debug activé :
 ![Resultat test simple](./res/debug_test_simple.png)
 
 Si les tests échouent, une raison possible peut être que les requêtes mettent trop de temps à arriver.
+
+#Files
+
+- `gestionnaire_ressource.c` : Le code du gestionnaire de ressources
+- `test_gestionnaire_ressource_simple.c` : Le code test du gestionnaire de ressources
+- `tester.c/.h` : Quelques fonctions utiles pour tester le gestionnaire de ressources
